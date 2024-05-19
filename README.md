@@ -62,3 +62,4 @@ Note:
 * [C. Miller, "Generative Designs of Lightweight Air-Cooled Heat Exchangers," Mechanical Engineering Undergraduate Honors Thesis, University of Arkansas, May 2022](https://scholarworks.uark.edu/meeguht/111/) <br>
 ### B. Educational papers
 * [H. Hu and C. Heo, “Integration of Data Science Into Thermal-Fluids Engineering Education,” in ASME International Mechanical Engineering Congress and Exposition, Proceedings (IMECE), 2022, vol. 7, no. Dl, pp. 1–10, doi: 10.1115/IMECE2022-88193](https://asmedigitalcollection.asme.org/IMECE/proceedings/IMECE2022/86694/V007T09A023/1157305) <br>
+* [Y. Xu, B. Zhao, S. Tung, and H. Hu, “Infusing Data Science into Mechanical Engineering Curriculum with Course-Specific Machine Learning Modules,” in 2023 ASEE Annual Conference, Jun 2023, Baltimore, MD, 10.18260/1-2--43958.](https://peer.asee.org/infusing-data-science-into-mechanical-engineering-curriculum-with-course-specific-machine-learning-modules)
