@@ -6,14 +6,14 @@
 This course covers an introduction to supervised and unsupervised learning algorithms for engineering applications, such as visualization-based physical quantity predictions, dynamic signal classification, and prediction, data-driven control of dynamical systems, surrogate modeling, and dimensionality reduction, among others. The lectures cover the fundamental concepts and examples of developing machine learning models using Python and MATLAB. This course includes four homework assignments to practice the application of different machine learning algorithms in specific mechanical engineering problems and a project assignment that gives the students the flexibility of selecting their topics to study using designated machine learning tools. The overarching goal of this project is to equip mechanical engineers with machine learning skills and deepen the integration of data science into the mechanical engineering curriculum. Compared to machine learning courses offered by computer science and data science programs, this course has a much stronger focus on integration with mechanical engineering problems. Students will be provided with concrete and specific engineering problems with experimental data. The projects, presentations, and in-class peer review practice are designed to foster students’ professional skills following the National Association of Colleges and Employers (NACE) competencies, including critical thinking, communication, teamwork, technology, leadership, and professionalism. Graduate students are required to complete an extra assignment (selected from three provided options) and a supercomputing assignment. 
 ### Learning Objectives:
 Students completing this course are expected to be capable of
-•	Develop, train, and test machine learning models using Python/TensorFlow and MATLAB
-•	Develop machine learning models for image classification and clustering
-•	Perform data dimensionality reduction for physics extraction
-•	Analyze images/maps from experiments and simulations to predict physical quantities
-•	Adapt trained machine learning models to new applications
-•	Analyze time series for classification and regression
-•	Develop surrogate models for computationally expensive numerical simulations
-•	Benchmark the scalability of machine learning models on CPU and GPU clusters
+•	Develop, train, and test machine learning models using Python/TensorFlow and MATLAB <br>
+•	Develop machine learning models for image classification and clustering <br>
+•	Perform data dimensionality reduction for physics extraction <br>
+•	Analyze images/maps from experiments and simulations to predict physical quantities <br>
+•	Adapt trained machine learning models to new applications <br>
+•	Analyze time series for classification and regression <br>
+•	Develop surrogate models for computationally expensive numerical simulations <br>
+•	Benchmark the scalability of machine learning models on CPU and GPU clusters <br>
 •	Develop complex machine learning models by integrating two or multiple mechanisms in tandem
 ### Textbook: 
 [Steven L. Brunton, J. Nathan Kutz, Data-Driven Science and Engineering: Machine Learning, Dynamical Systems, and Control, 1st ed, Cambridge University Press, 2019](https://www.databookuw.com/)
