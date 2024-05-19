@@ -1,2 +1,2 @@
-# MEEG-54403
-MEEG-44403/54403 Machine Learning for Mechanical Engineers, Technical Elective for Undergraduate and Graduate students at the University of Arkansas
+# MEEG-44403/54403: Machine Learning for Mechanical Engineers (University of Arkansas, Department of Mechanical Engineering)
+Instructor: Han Hu
