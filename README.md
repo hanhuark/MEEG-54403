@@ -53,11 +53,11 @@ Note:
 ### Data source: [Nano Energy and Data-Driven Discovery Laboratory](https://ned3.uark.edu/) <br>
 ### Funding: MathWorks Curriculum Development Support program, [Mehdi Vahab](https://www.linkedin.com/in/mehdivahab/)
 
-Publications: 
-A. Publications including results of course projects/assignments
-[J. K. Hoskins, H. Hu, and M. Zou, “Exploring Machine Learning and Machine Vision in Femtosecond Laser Machining,” ASME Open Journal of Engineering, vol. 2, p. 024501, 2023, doi: 10.1115/1.4063646.](https://asmedigitalcollection.asme.org/openengineering/article/doi/10.1115/1.4063646/1169944/Exploring-Machine-Learning-and-Machine-Vision-in)
-[C. Dunlap, H. Pandey, and H. Hu, “Supervised and Unsupervised Learning Models for Detection of Critical Heat Flux during Pool Boiling,” in Proceedings of the ASME 2022 Heat Transfer Summer Conference, 2022, pp. HT2022-85582.] (https://asmedigitalcollection.asme.org/HT/proceedings/HT2022/85796/V001T08A004/1146566)
-[L. M. Jr, D. Jensen, and H. Hu, “Supporting Condition-Based Maintenance for Rotary Systems Under Multiple Fault Scenarios,” in Proceedings of the ASME 2023 International Design Engineering Technical Conferences & Computers and Information in Engineering (IDETC/CIE) Conference, 2023, p. V002T02A075.](https://asmedigitalcollection.asme.org/IDETC-CIE/proceedings/IDETC-CIE2023/87295/V002T02A075/1170350?casa_token=-RofT6CbRZsAAAAA:CqTgXasH66LS3JHl5csGpWo0MxPkp4aXxJT5TVoFCNoE1F2e5-9x6aUy3Hx9JbZ5ZZO8n1us)
-[C. Miller, "Generative Designs of Lightweight Air-Cooled Heat Exchangers," Mechanical Engineering Undergraduate Honors Thesis, University of Arkansas, May 2022](https://scholarworks.uark.edu/meeguht/111/)
-B. Educational papers
-[](https://asmedigitalcollection.asme.org/IMECE/proceedings/IMECE2022/86694/V007T09A023/1157305)
+## Publications:
+### A. Publications including results of course projects/assignments
+[J. K. Hoskins, H. Hu, and M. Zou, “Exploring Machine Learning and Machine Vision in Femtosecond Laser Machining,” ASME Open Journal of Engineering, vol. 2, p. 024501, 2023, doi: 10.1115/1.4063646.](https://asmedigitalcollection.asme.org/openengineering/article/doi/10.1115/1.4063646/1169944/Exploring-Machine-Learning-and-Machine-Vision-in) <br>
+[C. Dunlap, H. Pandey, and H. Hu, “Supervised and Unsupervised Learning Models for Detection of Critical Heat Flux during Pool Boiling,” in Proceedings of the ASME 2022 Heat Transfer Summer Conference, 2022, pp. HT2022-85582.] (https://asmedigitalcollection.asme.org/HT/proceedings/HT2022/85796/V001T08A004/1146566) <br>
+[L. M. Jr, D. Jensen, and H. Hu, “Supporting Condition-Based Maintenance for Rotary Systems Under Multiple Fault Scenarios,” in Proceedings of the ASME 2023 International Design Engineering Technical Conferences & Computers and Information in Engineering (IDETC/CIE) Conference, 2023, p. V002T02A075.](https://asmedigitalcollection.asme.org/IDETC-CIE/proceedings/IDETC-CIE2023/87295/V002T02A075/1170350?casa_token=-RofT6CbRZsAAAAA:CqTgXasH66LS3JHl5csGpWo0MxPkp4aXxJT5TVoFCNoE1F2e5-9x6aUy3Hx9JbZ5ZZO8n1us) <br>
+[C. Miller, "Generative Designs of Lightweight Air-Cooled Heat Exchangers," Mechanical Engineering Undergraduate Honors Thesis, University of Arkansas, May 2022](https://scholarworks.uark.edu/meeguht/111/) <br>
+### B. Educational papers
+[](https://asmedigitalcollection.asme.org/IMECE/proceedings/IMECE2022/86694/V007T09A023/1157305) <br>
