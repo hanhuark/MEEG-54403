@@ -54,7 +54,7 @@ Note:
 ### Funding: MathWorks Curriculum Development Support program, [Mehdi Vahab](https://www.linkedin.com/in/mehdivahab/)
 
 ## Publications:
-### A. Publications consisting results of course projects/assignments
+### A. Publications consisting of course projects/assignments
 * [J. K. Hoskins, H. Hu, and M. Zou, “Exploring Machine Learning and Machine Vision in Femtosecond Laser Machining,” ASME Open Journal of Engineering, vol. 2, p. 024501, 2023, doi: 10.1115/1.4063646.](https://asmedigitalcollection.asme.org/openengineering/article/doi/10.1115/1.4063646/1169944/Exploring-Machine-Learning-and-Machine-Vision-in) <br>
 * [A.C. Iradukunda, B.M. Nafis, D. Huitink, Y. Chen, H.A. Mantooth, G. Campbell. and D. Underwood, "Toward Direct Cooling In High Voltage Power Electronics: Dielectric Fluid Microchannel Embedded Source Bussing Terminal," IEEE Transactions on Components, Packaging and Manufacturing Technology, 2024](https://ieeexplore.ieee.org/abstract/document/10443930) <br>
 * [C. Dunlap, H. Pandey, and H. Hu, “Supervised and Unsupervised Learning Models for Detection of Critical Heat Flux during Pool Boiling,” in Proceedings of the ASME 2022 Heat Transfer Summer Conference, 2022, pp. HT2022-85582.](https://asmedigitalcollection.asme.org/HT/proceedings/HT2022/85796/V001T08A004/1146566) <br>
