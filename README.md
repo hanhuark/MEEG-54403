@@ -48,7 +48,7 @@ The image dataset represents a boiling image sequence under transient heat loads
 Note: 
 1.	Use an input vector length of 100 and an output vector length of 100 for the model.
 2.	Downsample the image sequence (e.g., reducing the frame rate from 1,000 fps to 500 fps) in case of memory issues. 
-## MATLAB tutorial credits:  
+## Tutorials for Assignments (MATLAB and Python):  
 ### Developer: [Najee Stubbs](https://www.linkedin.com/in/najeei/) <br>
 ### Data source: [Nano Energy and Data-Driven Discovery Laboratory](https://ned3.uark.edu/) <br>
 ### Funding: MathWorks Curriculum Development Support program, [Mehdi Vahab](https://www.linkedin.com/in/mehdivahab/)
