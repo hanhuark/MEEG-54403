@@ -20,7 +20,10 @@ Students completing this course are expected to be capable of  <br>
 ### Software Packages:
 Python IDE and Packages,, TensorFlow, Scikit-Learn, PyTorch, Keras, Numpy, , MATLAB.
 * Python packages <br>
+
 MATLAB and Toolboxes:
+
+
 * [Deep Learning Toolbox](https://www.mathworks.com/products/deep-learning.html)
 * [Statistics and Machine Learning Toolbox](https://www.mathworks.com/products/statistics.html)
 * [Image Processing Toolbox](https://www.mathworks.com/products/image-processing.html)
