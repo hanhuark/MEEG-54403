@@ -51,7 +51,7 @@ Note:
 ## Tutorials for Assignments (MATLAB and Python):  
 ### Developer: [Najee Stubbs](https://www.linkedin.com/in/najeei/) <br>
 ### Data source: [Nano Energy and Data-Driven Discovery Laboratory](https://ned3.uark.edu/) <br>
-### Funding: MathWorks Curriculum Development Support program, [Mehdi Vahab](https://www.linkedin.com/in/mehdivahab/)
+### Funding: [MathWorks Curriculum Development Support program](https://www.mathworks.com/company/aboutus/soc_mission/education.html) (Organized by [Mehdi Vahab](https://www.linkedin.com/in/mehdivahab/))
 
 ## Publications:
 ### A. Publications consisting of course projects/assignments
