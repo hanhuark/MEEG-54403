@@ -19,7 +19,7 @@ Students completing this course are expected to be capable of  <br>
 [Steven L. Brunton, J. Nathan Kutz, Data-Driven Science and Engineering: Machine Learning, Dynamical Systems, and Control, 1st ed, Cambridge University Press, 2019](https://www.databookuw.com/)
 ### Software Packages:
 Python IDE and Packages,, TensorFlow, Scikit-Learn, PyTorch, Keras, Numpy, , MATLAB.
-* Python packages:
+* Python packages <br>
 MATLAB and Toolboxes:
 * [Deep Learning Toolbox](https://www.mathworks.com/products/deep-learning.html)
 * [Statistics and Machine Learning Toolbox](https://www.mathworks.com/products/statistics.html)
