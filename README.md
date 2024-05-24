@@ -29,6 +29,7 @@ Python Packages:
 * Matplotlib <br>
 * Seaborn <br>
 * OpenCV <br>
+
 MATLAB and Toolboxes:
 * [MATLAB](https://www.mathworks.com/products/matlab.html)
 * [Deep Learning Toolbox](https://www.mathworks.com/products/deep-learning.html)
