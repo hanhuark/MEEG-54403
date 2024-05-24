@@ -18,7 +18,13 @@ Students completing this course are expected to be capable of  <br>
 ### Textbook: 
 [Steven L. Brunton, J. Nathan Kutz, Data-Driven Science and Engineering: Machine Learning, Dynamical Systems, and Control, 1st ed, Cambridge University Press, 2019](https://www.databookuw.com/)
 ### Software Packages:
-Python, PyCharm, Ananconda, Google Colab, TensorFlow, Scikit-Learn, PyTorch, Keras, Numpy, Jupyter Notebook, MATLAB.
+Python IDE and Packages,, TensorFlow, Scikit-Learn, PyTorch, Keras, Numpy, , MATLAB.
+* Python packages:
+MATLAB and Toolboxes:
+* [Deep Learning Toolbox](https://www.mathworks.com/products/deep-learning.html)
+* [Statistics and Machine Learning Toolbox](https://www.mathworks.com/products/statistics.html)
+* [Image Processing Toolbox](https://www.mathworks.com/products/image-processing.html)
+* [System Identification Toolbox](https://www.mathworks.com/products/sysid.html)
 ### Assignment 1 - Regression:
 In pool boiling experiments, the boiling heat flux can be estimated as the supplied power divided by the heater surface. However, this estimation will not be very accurate due to heat loss and other non-ideal conditions in experiments, especially for thin-film heaters with relatively low thermal conductivities (e.g., ITO heaters). Conventionally, finite-element simulations are used to evaluate the heat loss to validate or correct the experimental assumptions. Machine learning provides another perspective for tackling this issue. The heat loss and other non-ideal conditions can be captured and accounted for by the hidden layers of neural networks. The target of Problem 1-1 is to develop an MLP model to predict heat flux using temperature. The data set includes the temperature and the heat flux during a transient pool boiling test. 
 a.	Set up and train an MLP and a GPR model to predict the heat flux based on the temperature. Report the training curves (training/validation accuracy/loss vs. epoch) and the training time (time/epoch, time till the best model).
