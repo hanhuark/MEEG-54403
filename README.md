@@ -70,7 +70,8 @@ Note:
 ### Developer: [Najee Stubbs](https://www.linkedin.com/in/najeei/) <br>
 ### Data source: [Nano Energy and Data-Driven Discovery Laboratory](https://ned3.uark.edu/) <br>
 ### Funding: [MathWorks Curriculum Development Support program](https://www.mathworks.com/company/aboutus/soc_mission/education.html) (Organized by [Mehdi Vahab](https://www.linkedin.com/in/mehdivahab/))
-
+## Acknowledgments:
+The initial development of the course was supported by the [Department of Mechanical Engineering at the University of Arkansas](https://mechanical-engineering.uark.edu/) and the [Arkansas NSF EPSCoR DART Project](https://dartproject.org/). The experimental datasets used in the assignments were prepared by [Hari Pandey](https://www.linkedin.com/in/haripandey14/) and original course content was supported by [Connor Heo](https://www.linkedin.com/in/connor-heo-5b790336/) and [Christy Dunlap](https://www.linkedin.com/in/christy-dunlap/). The course syllabi and content of this course were revised following the comments from the Department of Mechanical Engineering Curriculum Committee and students enrolled in this course from 2021 - 2023. The tutorials for the assignments were developed by [Najee Stubbs](https://www.linkedin.com/in/najeei/) under the support of a gift from the [MathWorks Curriculum Development Support program](https://www.mathworks.com/company/aboutus/soc_mission/education.html). 
 ## Publications:
 ### A. Publications consisting of course projects/assignments
 * [J. K. Hoskins, H. Hu, and M. Zou, “Exploring Machine Learning and Machine Vision in Femtosecond Laser Machining,” ASME Open Journal of Engineering, vol. 2, p. 024501, 2023, doi: 10.1115/1.4063646.](https://asmedigitalcollection.asme.org/openengineering/article/doi/10.1115/1.4063646/1169944/Exploring-Machine-Learning-and-Machine-Vision-in) <br>
