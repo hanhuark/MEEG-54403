@@ -5,6 +5,10 @@
 ## Course Description:
 ### Overview:
 This course covers an introduction to supervised and unsupervised learning algorithms for engineering applications, such as visualization-based physical quantity predictions, dynamic signal classification, and prediction, data-driven control of dynamical systems, surrogate modeling, and dimensionality reduction, among others. The lectures cover the fundamental concepts and examples of developing machine learning models using Python and [MATLAB](https://www.mathworks.com/). This course includes four homework assignments to practice the application of different machine learning algorithms in specific mechanical engineering problems and a project assignment that gives the students the flexibility of selecting their topics to study using designated machine learning tools. The overarching goal of this project is to equip mechanical engineers with machine learning skills and deepen the integration of data science into the mechanical engineering curriculum. Compared to machine learning courses offered by computer science and data science programs, this course has a much stronger focus on integration with mechanical engineering problems. Students will be provided with concrete and specific engineering problems with experimental data. The projects, presentations, and in-class peer review practice are designed to foster students’ professional skills following the National Association of Colleges and Employers (NACE) competencies, including critical thinking, communication, teamwork, technology, leadership, and professionalism. Graduate students are required to complete an extra assignment (selected from three provided options) and a supercomputing assignment. 
+<p align="center">
+  <img src="MEEG-54403_Overview.tif" alt="course_overview" width="100%" />
+</p>
+
 ### Learning Objectives:
 Students completing this course are expected to be capable of  <br>
 •	Develop, train, and test machine learning models using Python/TensorFlow and MATLAB <br>
@@ -17,6 +21,7 @@ Students completing this course are expected to be capable of  <br>
 •	Benchmark the scalability of machine learning models on CPU and GPU clusters <br>
 •	Develop complex machine learning models by integrating two or multiple mechanisms in tandem
 ### Textbook: 
+This class does not require a textbook, but the following book is a good reference, particularly for Assignments 1 and 3. <br>
 [Steven L. Brunton, J. Nathan Kutz, Data-Driven Science and Engineering: Machine Learning, Dynamical Systems, and Control, 1st ed, Cambridge University Press, 2019](https://www.databookuw.com/)
 ### Software Packages:
 Python Packages:
