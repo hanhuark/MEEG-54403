@@ -25,11 +25,51 @@ Table 2: Testing Data
 
 #### LINEAR REGRESSION
 
-We will start with the simplest of these regression methods, linear regression. You have probably used this previously but for comparison lets go over the process behind it. The formula for ordinary least squares linear regression is:
+We will start with the simplest of these regression methods, linear regression. You have probably used this previously (for best fit in excel) so for comparison lets go over the process behind it. The equation of a line is $y=mx+b$ where m and b are the slope and y-intercept respectively. The goal of linear regression is to find a line that minimizes the distance of the data points to said line. The equations for the ordinary least squares regression are:
+
+$$ m = \frac{\sum (x- \bar{x})(y-\bar{y})}{\sum (x-\bar{x})^2} $$ 
+
+$$ b = \bar{y} - m * \bar{x} $$
+
+Where $\bar{x}$ and $\bar{y}$ are the averages of the x's and y's. <br><br>
+We then plug in our training values in to these formulas to solve for the slope and y-intercept and get m=2 and b=0. <br><br>
 
 Now we check our testing data:
-And lastly we predict our value.
-This can be implemented in python used the sklearn library:
+
+|x|y|$y_{pred}$|
+|--|--|--|
+|1|2|2|
+|4|8|8|
+
+We see that it predicts the correct values for the testing data so we are satisfied with its ability to predict outside of the training.
+
+Lastly we predict our value.
+$2*(2.5)+0=5$
+<br><br>This can be also implemented in python used the sklearn library:
+
+```python
+from sklearn.linear_model import LinearRegression
+import numpy as np
+
+# Define our dataset
+X_train=np.array([0,2,3]).reshape(-1,1)
+Y_train=np.array([0,4,6])
+X_test=np.array([1,4]).reshape(-1,1)
+Y_test=np.array([1,8])
+
+# Train Model
+model=LinearRegression()
+model.fit(X_train, Y_train)
+print("m: ", model.coef_[0])
+print("b: ", model.intercept_)
+
+# Test model 
+y_test_pred=model.predict(X_test)
+print("Testing Data y preditions:", y_test_pred)
+
+# Make final prediction:
+print("x=2.5, y=", model.predict(np.array([2.5]).reshape(-1,1)))
+```
 
 #### NEURAL NETWORKS
 The least squares linear regression method worked great for this simple dataset but with more complex non-linear datasets more complex models are needed to fully describe the translation from x to y. Deep learning methods describe models with multiple layers to extract features. The simplest of these is the multilayer perceptron. This model is inspired by the neurons in the human brain. The network is composed of multiple layers of neurons. Where one neuron, shown in figure NUMBER, describes a mathematical function. Specifically:
@@ -101,7 +141,34 @@ Finally, we can predict our y value for input x=2.5 using our model. We get 4.98
 
 This same process can be done in python using Tensorflow: <br><br>
 
+```python
+import tensorflow as tf
+import numpy as np
 
+# Define our dataset
+X_train=np.array([0,2,3]).reshape(-1,1)
+Y_train=np.array([0,4,6])
+X_test=np.array([1,4]).reshape(-1,1)
+Y_test=np.array([1,8])
+
+# Define our simple model
+model=tf.keras.Sequential([
+      tf.keras.layers.Dense(1,activation='linear', input_shape=(1,))
+])
+
+# Define our optimizer
+model.compile(optimizer=tf.keras.optimizers.SGD(learning_rate=0.1), loss='mse')
+
+# Train our model
+model.fit(X_train,Y_train, epochs=10, batch_size=3, verbose=1)
+
+# Test our model
+print("Testing predictions:", model.predict(X_test))
+
+# Make our prediction
+print("At x=2.5, y=", model.predict(np.array([2.5]).reshape(-1,1)))
+```
+Note this may not be the same as what I walked through because of the random initialization. <br><br>
 You may be asking “ this has been with a very simple network but what happens if we have more complicated networks?”
 This is a great question. The process of upscaling is pretty simple now that we have this understanding. We will now get into backpropagation. Which is the process of updating the weights. It is composed of the following steps. These should look familiar to you since we just did a very simple example of them previously:
 
@@ -110,14 +177,16 @@ This is a great question. The process of upscaling is pretty simple now that we 
 3.	Backward pass: calculate partial derivatives of loss function via chain rule
 4.	Optimizer: update model weights
    
-Step 3 is where we will provide some more background on
+Step 3 is where we will provide some more background on. With added neurons and layers the partials get more complicated. But by chain rule they can all be solved for quite nicely. 
 
 #### OPTIMIZERS
-*Gradient descent* uses all the data to the update the weights and biases. Although this leads to accurate and more stable updates the process requires high computation. Another method *Stochastic gradient descent* was proposed to fix this. It uses the same update equation but instead of using the entire dataset for updating, it uses a single point or smaller batches to update the gradients. This allows for faster training process but can lead to oscillations around the minimum. <r><br>
+The optimizer is how we update the learnable parameters. The most basic of these is *Gradient descent* as shown previously. It uses all the data to the update the weights and biases. Although this leads to accurate and more stable updates the process requires high computation. Another method *Stochastic gradient descent* was proposed to fix this. It uses the same update equation but instead of using the entire dataset for updating, it uses a single point or smaller batches to update the gradients. This allows for faster training process but can lead to oscillations around the minimum. Another optimizer you commonly see is the Adam optimizer. This method combines two extensions of SGD (i.e., AdaGrad and RMSProp). It allows for training speed ups and helps prevent oscillations through the use of momentum. <br><br>
 
 #### OVERFITTING
 
-There are several things you have to look out for when training models. One important issue you need to avoid is overfitting. This can make it look like your training is going well but when checking on your testing data it has horrible performance. Overfitting is especially a danger with noisy data, you want to make sure your model describes trends rather than specific noise. 
+There are several things you have to look out for when training models. One important issue you need to avoid is overfitting. This can make it look like your training is going well but when checking on your testing data it has horrible performance. Overfitting is especially a danger with noisy data, you want to make sure your model describes trends rather than specific noise. For example, figure NUMBER shows two functions that describe the same set of data. The blue are the values the model was trained on and the star shows a testing data point. You can see the right function yeilds a closer prediction to the testing data. <br><br>
+
+There are some ways to help prevent this problem. One important factor is amount of data. It is important to have a large dataset that covers several variations you might see in a deployed model. Also the use of validation data during training can help in stopping the training process before over fitting occurs. Additionally, the use of cross fold validation can also improve the training. 
 
 #### VALIDATION DATA
 Another important concept is validation data. I briefly mentioned it previously but said nothing beyond that. The inclusion of validation data is used for mitigating overfitting. This process works by setting aside a subset of training data. This data will be used at the end of an epoch to check in and see how well the training is going. The goal will be to minimize the loss of the validation data rather than the loss of the training data. 
