@@ -177,7 +177,22 @@ This is a great question. The process of upscaling is pretty simple now that we 
 3.	Backward pass: calculate partial derivatives of loss function via chain rule
 4.	Optimizer: update model weights
    
-These processes will still be performed for a larger network. By using chain rule for step 3 and 4 the 
+These processes will still be performed for a larger network. By using chain rule for step 3 and 4 the gradients for each weight and bias can be efficiently solved for. For example consider the network in figure NUMBER. Each nueron has a function associated with it. So what we will want to do is calculate the partial deveriviates for each neuron.
+
+$$ y=\sigma \left( \sum W_ix_i+b \right)$$
+
+Let's define $z= \sum W_ix_i +b$
+So then the derivative of y with respect to $W_i$ and b would be:
+
+$$\frac{dy}{dW_i}=\sigma'(z)*\frac{dz}{dW_i}=\sigma'(z)(x)$$
+
+$$\frac{dy}{db}=\sigma'(z)*\frac{dz}{db}=\sigma'(z)*1$$
+
+Now we will want to go calculate the derivative of the loss with respect to each trainable parameter. But what you can see is something kind of cool happens. So say we want to solve for $\frac{dMSE}{dW_{11}}$:
+
+$$ \frac{dMSE}{dW_{11}}=2(Y-Y_{pred})\frac{dY_{pred}}{dW_{11}}=2(Y-Y_{pred})\frac{dY_{pred}}{da_1}\frac{da_1}{dW_{11}}$$
+
+We see that we have already solved for $\frac{da_1}{dW_{11}}$. So similarly we can use this to solve for all weights and bias gradients so we dont have to duplicate computations.
 
 #### OPTIMIZERS
 The optimizer is how we update the learnable parameters. The most basic of these is *Gradient descent* as shown previously. It uses all the data to the update the weights and biases. Although this leads to accurate and more stable updates the process requires high computation. Another method *Stochastic gradient descent* was proposed to fix this. It uses the same update equation but instead of using the entire dataset for updating, it uses a single point or smaller batches to update the gradients. This allows for faster training process but can lead to oscillations around the minimum. Another optimizer you commonly see is the Adam optimizer. This method combines two extensions of SGD (i.e., AdaGrad and RMSProp). It allows for training speed ups and helps prevent oscillations through the use of momentum. <br><br>
@@ -192,5 +207,8 @@ There are some ways to help prevent this problem. One important factor is amount
 Another important concept is validation data. I briefly mentioned it previously but said nothing beyond that. The inclusion of validation data is used for mitigating overfitting. This process works by setting aside a subset of training data. This data will be used at the end of an epoch to check in and see how well the training is going. The goal will be to minimize the loss of the validation data rather than the loss of the training data. 
 
 #### GAUSSIAN PROCESS REGRESSION (GPR)
+Gaussian process regression is a probabilistic kernel based method. 
 
-
+Assume $f(x),f(y) \sim Normal( \mu, \Sigma)$
+$y|x$
+We assume $\mu=0$ and we use kernels for approximating the covariance matrix $\Sigma$. Popular is radial basis function (RBF) kernel. Some data points will have more influence on you.  
