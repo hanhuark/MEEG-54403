@@ -177,7 +177,7 @@ This is a great question. The process of upscaling is pretty simple now that we 
 3.	Backward pass: calculate partial derivatives of loss function via chain rule
 4.	Optimizer: update model weights
    
-Step 3 is where we will provide some more background on. With added neurons and layers the partials get more complicated. But by chain rule they can all be solved for quite nicely. 
+These processes will still be performed for a larger network. By using chain rule for step 3 and 4 the 
 
 #### OPTIMIZERS
 The optimizer is how we update the learnable parameters. The most basic of these is *Gradient descent* as shown previously. It uses all the data to the update the weights and biases. Although this leads to accurate and more stable updates the process requires high computation. Another method *Stochastic gradient descent* was proposed to fix this. It uses the same update equation but instead of using the entire dataset for updating, it uses a single point or smaller batches to update the gradients. This allows for faster training process but can lead to oscillations around the minimum. Another optimizer you commonly see is the Adam optimizer. This method combines two extensions of SGD (i.e., AdaGrad and RMSProp). It allows for training speed ups and helps prevent oscillations through the use of momentum. <br><br>
