@@ -176,13 +176,13 @@ import matplotlib.pyplot as plt
 data = np.array([[0, 0], [2, 5], [3, 7], [4, 6], [5, 4]])
 
 # Initialize PCA
-pca = PCA(n_components=2)
+pca = PCA(n_components=1)
 
 # Fit PCA on the dataset and transform it
 transformed_data = pca.fit_transform(data)
 
 # Reconstruct the data using only the first principal component
-reconstructed_data = pca.inverse_transform(transformed_data[:, :1])
+reconstructed_data = pca.inverse_transform(transformed_data)
 
 # Print the mean, eigenvalues, and eigenvectors
 mean = pca.mean_
@@ -196,30 +196,30 @@ print(eigenvalues)
 print("\nEigenvectors:")
 print(eigenvectors)
 
-# Create a figure for the combined plot
+# Plot the original data and the reconstructed data (only 1 principal component)
 plt.figure(figsize=(8, 6))
 
-# Plot the original data
+# Plot original data
+plt.subplot(1, 2, 1)
 plt.scatter(data[:, 0], data[:, 1], color='blue', label='Original Data')
-
-# Plot the reconstructed data using only 1 principal component
-plt.scatter(reconstructed_data[:, 0], reconstructed_data[:, 1], color='red', label='Reconstructed Data (1 PC)')
-
-# Plot the eigenvectors (lines originating from the mean)
-# Scale the eigenvectors for better visualization
-for eigenvector in eigenvectors:
-    plt.quiver(mean[0], mean[1], eigenvector[0], eigenvector[1], angles='xy', scale_units='xy', scale=2, color='green', label='Eigenvector')
-
-# Customize the plot
-plt.title('Original and Reconstructed Data with Eigenvectors')
+plt.title('Original Data')
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.grid(True)
-plt.legend()
+
+# Plot reconstructed data using only 1 principal component
+plt.subplot(1, 2, 2)
+plt.scatter(reconstructed_data[:, 0], reconstructed_data[:, 1], color='red', label='Reconstructed Data (1 PC)')
+plt.title('Reconstructed Data (1 Principal Component)')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.grid(True)
 
 # Show the plot
 plt.tight_layout()
 plt.show()
+
+
 ```
 
 ## EXPLAINED VARIANCE
