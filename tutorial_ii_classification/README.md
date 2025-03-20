@@ -5,7 +5,7 @@ In this dataset, there are two folders, namely, “pre-CHF” and “post-CHF”
 
 The dataset for this assignment can be accessed at https://data.mendeley.com/datasets/5kjnphrbsz/1
 
-**Tutorial**:
+**Tutorial**:<br>
 [![colab1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1A_M5BRpdKr_I8H2Wy_4pkHCcsNuh7ae0?usp=sharing)
 
 ---
