@@ -93,7 +93,7 @@ So what we will do for training is pass our x inputs through our model to get pr
 |3|6|17|
 
 As you can see our predicted values are awful. This is okay because this is just a random guess. So now we will use these values to calculate our loss: MSE=63 <br><br>
-Now we can use this loss value to update our weights and biases using an **optimizer** and **backpropagation** (which will be explained elsewhere). The most basic optimizer is *gradient descent* and is shown below: 
+Now we can use this loss value to update our weights and biases using an **optimizer** and **backpropagation** (which will be explained elsewhere). The most basic optimizer is *gradient descent* and the corresponding equations for updating the trainable parameters are shown below: 
 
 $$ W_x = W_x^* - \alpha \left( \frac{dLoss}{dW_x} \right) $$
 
