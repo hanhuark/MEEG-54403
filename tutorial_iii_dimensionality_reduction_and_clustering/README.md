@@ -9,6 +9,8 @@ The dataset for this assignment can be accessed at https://data.mendeley.com/dat
 #### INTRODUCTION
 Unsupervised learning is commonly used for dimensionality reduction and clustering. This is unlike the work we have previously done since it does not use labeled data. Instead is works to find patterns within the data. For this section we will go other some popular unsupervised learning methods that you will implement. 
 
+### SINGLE VALUE DECOMPOSITION (SVD)
+
 ### PRINCIPLE COMPONENT ANALYSIS (PCA)
 A very common dimensionality reduction algorthim is PCA. It works by defining a new set of basis vectors that capture the most variance. Now that may not make sense yet but please bear with me. As with most things it probably is easist to explain with an example. So let's take a very simple dataset:
 
@@ -140,7 +142,6 @@ By doing this we get the new transformed data (the PCs):
 You can transform this data back into the original domain by multipling the transformed data by A. 
 So now we reduce the dimension by choosing how many PCs we want to retain. For our example we will only keep 1 so we will keep $c_1$. 
 
-
 |$c_1$|
 |--|
 |-4.474|
@@ -160,5 +161,102 @@ $$2.0*\begin{bmatrix}
 3.996 \\
 6.4 \end{bmatrix} $$
 
-<img src="eigenvectors.png" alt="Description" style="width:50%;">
+<img src="pcadata.png" alt="Description" style="width:50%;">
 
+This figure shows how the data is transformed. You can see how all the transformed points lie on the new basis so they are now in one dimension. You can also see how some information is lost but it still keeps the general trend of the data. <br><br>
+
+This can be done in scikit-learn:
+
+```python
+import numpy as np
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+
+# Define the dataset
+data = np.array([[0, 0], [2, 5], [3, 7], [4, 6], [5, 4]])
+
+# Initialize PCA
+pca = PCA(n_components=2)
+
+# Fit PCA on the dataset and transform it
+transformed_data = pca.fit_transform(data)
+
+# Reconstruct the data using only the first principal component
+reconstructed_data = pca.inverse_transform(transformed_data[:, :1])
+
+# Print the mean, eigenvalues, and eigenvectors
+mean = pca.mean_
+eigenvalues = pca.explained_variance_
+eigenvectors = pca.components_
+
+print("Mean of the dataset:")
+print(mean)
+print("\nEigenvalues:")
+print(eigenvalues)
+print("\nEigenvectors:")
+print(eigenvectors)
+
+# Create a figure for the combined plot
+plt.figure(figsize=(8, 6))
+
+# Plot the original data
+plt.scatter(data[:, 0], data[:, 1], color='blue', label='Original Data')
+
+# Plot the reconstructed data using only 1 principal component
+plt.scatter(reconstructed_data[:, 0], reconstructed_data[:, 1], color='red', label='Reconstructed Data (1 PC)')
+
+# Plot the eigenvectors (lines originating from the mean)
+# Scale the eigenvectors for better visualization
+for eigenvector in eigenvectors:
+    plt.quiver(mean[0], mean[1], eigenvector[0], eigenvector[1], angles='xy', scale_units='xy', scale=2, color='green', label='Eigenvector')
+
+# Customize the plot
+plt.title('Original and Reconstructed Data with Eigenvectors')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.grid(True)
+plt.legend()
+
+# Show the plot
+plt.tight_layout()
+plt.show()
+```
+
+## EXPLAINED VARIANCE
+We may want to see how much information is retained by the reduction. This can also be used for determining an apporiate number of pcs to retain. The explained variance formula is based on the eigenvalues:
+
+$$\text{Explained Variance Ratio of kth compenent} = \frac{\lambda_k}{\sum^d_{i+1} \lambda_i}$$
+
+This is done in python using scikit-learn:
+
+```python
+import numpy as np
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+
+# Define the dataset
+data = np.array([[0, 0], [2, 5], [3, 7], [4, 6], [5, 4]])
+
+# Initialize PCA with 2 components
+pca = PCA(n_components=2)
+
+# Fit PCA on the dataset and transform it
+pca.fit(data)
+
+# Get the explained variance ratio
+explained_variance_ratio = pca.explained_variance_ratio_
+
+# Print the explained variance ratio
+print("Explained Variance Ratio:")
+print(explained_variance_ratio)
+
+# Plot the explained variance ratio over the components
+plt.figure(figsize=(6, 4))
+plt.bar(range(1, len(explained_variance_ratio) + 1), explained_variance_ratio, color='blue', alpha=0.7)
+plt.title('Explained Variance Ratio by Principal Components')
+plt.xlabel('Principal Component')
+plt.ylabel('Explained Variance Ratio')
+plt.xticks(range(1, len(explained_variance_ratio) + 1))
+plt.grid(True)
+plt.show()
+```
