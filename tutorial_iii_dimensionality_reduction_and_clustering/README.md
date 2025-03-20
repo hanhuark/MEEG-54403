@@ -72,7 +72,11 @@ $$ det \left( \begin{bmatrix}
 \end{bmatrix} \right)= (3.7-\lambda)*(7.3-\lambda)-(3.35)(3.35)=0$$
 
 Then solving for $\lambda$ gives $\lambda = 1.697, \lambda = 9.303$. You then plug these back into the equation to get the corresponding eigenvectors $v=[-1.673,1] $ and $v=[0.598,1] $, respectively.
-These eigen vectors now define our new space. Previously, our space was defined by the vectors [1,0] and [0,1]. Figure NUMBer shows the original basis and the new basis. You can actually represent every data point as a linear combination of the basis vectors. For example $[x1,x2]=[0.2,2.6]$
+These eigen vectors now define our new space. Previously, our space was defined by the vectors [1,0] and [0,1]. Figure NUMBer shows the original basis and the new basis.
+
+<img src="eigenvectors.png" alt="Description" style="width:50%;">
+
+You can actually represent every data point as a linear combination of the basis vectors. For example $[x1,x2]=[0.2,2.6]$
 
 $$ \begin{bmatrix} 
 0.2 \\ 
@@ -85,9 +89,9 @@ $$ \begin{bmatrix}
 
 $$ \begin{bmatrix} 
 0.2 \\ 
-2.6 \end{bmatrix} = 2.720 \begin{bmatrix} 
+2.6 \end{bmatrix} = -1.057 \begin{bmatrix} 
 0.598 \\
-1 \end{bmatrix} + 2.265 \begin{bmatrix} 
+1 \end{bmatrix} + 0.832 \begin{bmatrix} 
 -1.673\\
 1 
 \end{bmatrix} $$
