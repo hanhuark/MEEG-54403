@@ -89,12 +89,76 @@ $$ \begin{bmatrix}
 
 $$ \begin{bmatrix} 
 0.2 \\ 
-2.6 \end{bmatrix} = -1.057 \begin{bmatrix} 
+2.6 \end{bmatrix} = 2\begin{bmatrix} 
 0.598 \\
-1 \end{bmatrix} + 0.832 \begin{bmatrix} 
+1 \end{bmatrix} + 0.597 \begin{bmatrix} 
 -1.673\\
 1 
 \end{bmatrix} $$
 
 Now we sort the eigenvalues from highest to lowest. $9.303 > 1.697$ and use this to sort the corresponding vectors. 
 The vectors with the highest corresponding vectors represent the directions with the most variance in the data. In our case the vector $v=[0.598,1]$ represents the most variance. 
+So what we can do is choose how many coefficents (or PCs) we want to keep. And then we can convert all of our datapoints into this new space and only keep a specified amount of dimensions. In our simple case we will only keep the first dimension. So to transform our data to our pc we use some matrix multiplication.<br><br>
+We define A (the matrix of eigenvectors):
+
+$$A=\begin{bmatrix}
+0.598 & -1.673\\
+1 & 1
+\end{bmatrix} $$
+
+Now we see by putting together our linear combination equations that:
+
+$$A \begin{bmatrix}
+c_1 \\
+c_2
+\end{bmatrix}
+= \begin{bmatrix}
+x_1 \\
+x_2 
+\end{bmatrix} $$
+
+So to solve for our $c_i$'s we do:
+
+$$ \begin{bmatrix}
+c_1\\
+c_2 
+\end{bmatrix}= A^{-1} \begin{bmatrix}
+x_1 \\
+x_2 
+\end{bmatrix} $$
+
+By doing this we get the new transformed data (the PCs):
+
+|$c_1$|$c_2$|
+|--|--|
+|-4.474|0.074|
+|0.09|0.51|
+|2.0|0.597|
+|1.707|-0.107|
+|0.674|-1.074|
+
+You can transform this data back into the original domain by multipling the transformed data by A. 
+So now we reduce the dimension by choosing how many PCs we want to retain. For our example we will only keep 1 so we will keep $c_1$. 
+
+
+|$c_1$|
+|--|
+|-4.474|
+|0.09|
+|2.0|
+|1.707|
+|0.674|
+
+This means we can reduce our dataset by half. By doing this we do loose some information. To show this lets try and convert $c_1=2$ back to our orginal domain (multiply by eigenvector and add mean). 
+
+$$2.0*\begin{bmatrix}
+0.598 \\
+1
+\end{bmatrix}+ \begin{bmatrix} 
+2.8 \\
+4.4 \end{bmatrix} = \begin{bmatrix}
+3.996 \\
+6.4 \end{bmatrix} $$
+
+<img src="eigenvectors.png" alt="Description" style="width:50%;">
+
