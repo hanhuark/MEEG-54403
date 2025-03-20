@@ -204,6 +204,8 @@ The optimizer is how we update the learnable parameters. The most basic of these
 
 There are several things you have to look out for when training models. One important issue you need to avoid is overfitting. This can make it look like your training is going well but when checking on your testing data it has horrible performance. Overfitting is especially a danger with noisy data, you want to make sure your model describes trends rather than specific noise. For example, figure NUMBER shows two functions that describe the same set of data. The blue are the values the model was trained on and the star shows a testing data point. You can see the right function yeilds a closer prediction to the testing data. <br><br>
 
+<img src="overfit.png" alt="Overfitting" style="width:70%;">
+
 There are some ways to help prevent this problem. One important factor is amount of data. It is important to have a large dataset that covers several variations you might see in a deployed model. Also the use of validation data during training can help in stopping the training process before over fitting occurs. Additionally, the use of cross fold validation can also improve the training. 
 
 #### VALIDATION DATA
