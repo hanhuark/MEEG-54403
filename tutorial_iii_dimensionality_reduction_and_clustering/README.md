@@ -260,3 +260,8 @@ plt.xticks(range(1, len(explained_variance_ratio) + 1))
 plt.grid(True)
 plt.show()
 ```
+
+#### K-MEANS CLUSTERING
+Another type of unsupervised learning is clustering. This is the process of grouping data together based on their similarities. There are several different methods but one common and straight forward method is K-Means clustering. For this method you first pick how many clusters you want to create. 
+
+There initialization of the centriods can affect the clusters. 
