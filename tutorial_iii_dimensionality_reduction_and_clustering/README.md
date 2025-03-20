@@ -69,7 +69,7 @@ $$det(C-\lambda I)=0$$
 $$ det \left( \begin{bmatrix}
 3.7-\lambda & 3.35 \\
 3.35 & 7.3- \lambda 
-\end{bmatrix} \right)= (3.7-\lambda)*(7.3-lambda)-(3.35)(3.35)=0$$
+\end{bmatrix} \right)= (3.7-\lambda)*(7.3-\lambda)-(3.35)(3.35)=0$$
 
 Then solving for $\lambda$ gives $\lambda = 1.697, \lambda = 9.303$. You then plug these back into the equation to get the corresponding eigenvectors $v=[-1.673,1] $ and $v=[0.598,1] $, respectively.
 These eigen vectors now define our new space. Previously, our space was defined by the vectors [1,0] and [0,1]. Figure NUMBer shows the original basis and the new basis. You can actually represent every data point as a linear combination of the basis vectors. For example $[x1,x2]=[0.2,2.6]$
