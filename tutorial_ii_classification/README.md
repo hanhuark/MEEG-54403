@@ -11,6 +11,21 @@ The dataset for this assignment can be accessed at https://data.mendeley.com/dat
 ---
 
 #### INTRODUCTION
-Classification is a common machine learning task. It is used predict the category an input belongs to based on its features. There are two types we will focus on; binary classification and multi-class classification. Binary classification describes the instance where there are only two possible categories while for multi-class there are multiple categories. This discussion will assume you have the background knowledge from the previous notes so if you haven't read those at least skim over them. <br><br>
+Classification is a common machine learning task. It is used to predict the category an input belongs to based on its features. There are two types we will focus on; binary classification and multi-class classification. Binary classification describes the instance where there are only two possible categories while for multi-class there are multiple categories. This discussion will assume you have the background knowledge from the previous notes so if you haven't read those at least skim over them. <br><br>
 
-Now for this discussion we will need to have a dataset in mind. We will uses images because that is what your homework assignment is about but keep in mind this could be done for any input datatype. So, say we have the following images and we want to classify them as either 
+Now for this discussion we will need to have a dataset in mind. We will uses images because that is what your homework assignment is about but keep in mind this could be done for any input datatype. 
+
+To give you a better understanding, we will start with a small discussion using some image processing methods. Say I have an image that I want to do analysis on. An image consists of a set of pixel values that describe the color. For grey scale images each pixel has one value between 0 and 255. For colored images, each pixel has 3 values for the 3 seperate channels (rgb). As you can see this image is gray scale so we will only have one value per pixel. I want to figure emphasize the edges of the image. One way of doing this is to use a predefined kernel such as the Sobel kernels. Which are defined as:
+
+$$ \begin{bmatrix}
+-1 & 0 & +1 \\
+-2 & 0 & +2 \\
+-1 & 0 & +1 \\
+\end{bmatrix} , \begin{bmatrix}
++1 & +2 & +1 \\
+0 & 0 & 0\\
+-1 & -2 & -1 \end{bmatrix}$$
+
+Now if we pass these kernels over the image using convolution and fill out the new values we will get the following images. Notice how each one emphasize the edges horizontally and vertically. This kernel is used to create new versions of the same image that highlight specific features.
+
+This process is what CNN's are doing. However, we do not have defined kernels as we don't know what features we are looking for. So we set those with trainable parameters. That way the neural network and determine kernels that will result in the best model performance. 
