@@ -49,4 +49,4 @@ Now if we pass these kernels over the image using convolution and fill out the n
 
 <img src="edge.png" alt="edgedetection" style="width:70%;">
 
-What happens if you don't know what kernel to use for highlighting specific features or if you don't know what features are important for your application? This brings us to Convolutional Neural Networks. What we just walked through is the process used in CNN's however, they do not use predefined kernels. Instead a size is chosen and initalized with trainable weights. That way the neural network and determine kernels that will result in the best model performance. 
+What happens if you don't know what kernel to use for highlighting specific features or if you don't know what features are important for your application? This brings us to Convolutional Neural Networks. What we just walked through is the process used in CNN's however, they do not use predefined kernels. Instead kernels of specified sizes are initalized with trainable weights. That way the neural network and determine kernels that will result in the best model performance. 
