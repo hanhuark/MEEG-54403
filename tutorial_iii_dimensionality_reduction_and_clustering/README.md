@@ -225,7 +225,14 @@ plt.show()
 ## EXPLAINED VARIANCE
 We may want to see how much information is retained by the reduction. This can also be used for determining an apporiate number of pcs to retain. The explained variance formula is based on the eigenvalues:
 
-$$\text{Explained Variance Ratio of kth compenent} = \frac{\lambda_k}{\sum^d_{i+1} \lambda_i}$$
+$$\text{Explained Variance Ratio of kth component} = \frac{\lambda_k}{\sum^d_{i+1} \lambda_i}$$
+
+For this example our explained variance ration for the 1st and second component are:
+
+$$ \text{Explained Variance Ratio of 1st Component} = \frac{9.303}{9.303+1.697}=0.846$$
+
+$$ \text{Explained Variance Ratio of 2nd Component} = \frac{1.697}{9.303+1.697}=0.154$$
+
 
 This is done in python using scikit-learn:
 
