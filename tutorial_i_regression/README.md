@@ -206,25 +206,26 @@ There are several things you have to look out for when training models. One impo
 
 <img src="overfit.png" alt="Overfitting" style="width:70%;">
 
-There are some ways to help prevent this problem. One important factor is amount of data. It is important to have a large dataset that covers several variations you might see in a deployed model. Also the use of validation data during training can help in stopping the training process before over fitting occurs. Additionally, the use of cross fold validation can also improve the training. 
+There are some ways to help prevent this problem. One important factor is amount of data. It is important to have a large dataset that covers several variations you might see in a deployed model. Also the use of validation data during training can help in stopping the training process before over fitting occurs. Additionally, the use of cross fold validation can also improve the training. Also shuffling the data can help avoid overfitting. 
 
 #### VALIDATION DATA
 Another important concept is validation data. I briefly mentioned it previously but said nothing beyond that. The inclusion of validation data is used for mitigating overfitting. This process works by setting aside a subset of training data. This data will be used at the end of an epoch to check in and see how well the training is going. The goal will be to minimize the loss of the validation data rather than the loss of the training data. 
 
 #### GAUSSIAN PROCESS REGRESSION (GPR)
-Gaussian process regression is a probabilistic kernel based method. The nice thing about GPR is you not only get the point prediction you also obtain the confidence of that prediction.  
+Gaussian process regression is a probabilistic, kernel-based method. The nice thing about GPR is you not only get the point prediction you also obtain the confidence of that prediction. We will want to find a function that translates x to y. There are multiple that will fit our data. Gaussian Process Regression assumes these function values follow a multivariate normal distribution.  
 
-Assume $f(x),f(y) \sim Normal( \mu, \Sigma)$
-$y|x$
-We assume $\mu=0$ and we use kernels for approximating the covariance matrix $\Sigma$. Popular is radial basis function (RBF) kernel. Some data points will have more influence on you.  
+$f(x) \sim Normal( \mu, \Sigma)$
+
+GPR is based on the posterior distribution:
 
 $$P(f|X)= N (f| \mu, K)$$
 
-$X=[x_1,..., x_n]$ are the the data points f are functions values, $\mu$ mean function and K is kernel function. Mean defaults to zero. Guassian model is a distribution over possible functions where shapes are defined by K that fit a set of points. <br>
+Where P(f|X) is the distribution of function values given inputs X, $X=[x_1,..., x_n]$ are the the data points f are functions values, $\mu$ mean function and K is kernel function. Mean defaults to zero. Guassian model is a distribution over possible functions where shapes are defined by K that fit a set of points. <br>
 
-We make the assumption that our data follows a multivariant normal distribution. <br><br>
+This normal distribution is fully defined by a mean and covariance function. We typically assume $\mu=0$ and we use kernels for approximating the covariance matrix $\Sigma$. 
 
-Let's now walk through the process. First let's choose our kernel function, this function will define the smoothness of our prediction function. Although we will define other later, for this case we will use the simple linear kernel function: $k(x_i,x_j)=x_ix_j$. We will then define a kernel covariance matrix from our training points and kernel function:
+
+Let's now walk through the process. First let's choose our kernel function, this function will define the smoothness of our prediction function. There are several to choose from such as the popular radial basis function (RBF) kernel. However, for this simple case we will use the linear kernel function: $k(x_i,x_j)=x_ix_j$. We will then define the kernel covariance matrix from our training points and kernel function:
 
 $$K=\begin{bmatrix}
 k(x_1,x_1) & k(x_1,x_2) & k(x_1,x_3) \\
@@ -239,15 +240,90 @@ We will eventually take the inverse of this matrix so the 0 in the diagonal will
 Now whe want to make predictions for our test data so we will calculate our covariance matrix for the testing data.
 
 
-So we want to predict the value of y given x so we can define the posterior distribution:
+So we want to predict the value of y given x and the training data so we can define the posterior distribution:
 
-$$p(f_* |x_* ,X,y) \sim N(\mu_* , \sigma ^2_* )$$
+$$p(f_* |x_* ,X,Y) \sim N(\mu_* , \sigma ^2_* )$$
 
-Where $\mu_*=k_*^T(K)^{-1}y$ 
+Where 
 
-We will first compute the kernel between the testing and training points:
+$$x_* = \begin{bmatrix}
+1 \\
+4 \end{bmatrix}$$
+
+$$ X = \begin{bmatrix}
+0 \\
+2 \\
+3 \end{bmatrix}$$
+
+$$Y=\begin{bmatrix}
+0 \\
+4 \\
+6 \end{bmatrix}$$
 
 
-Then we can compute the variance 
+We will also need to computer the kenrnel between the testing and training points:
 
-$$\sigma _* ^2 = k(x _*, x _* ) - k _* ^T K^{-1} k _* $$
+$$ k_* = \begin{bmatrix} 
+k(x _{* ,1} , x_1) & k(x _{* ,2} , x_1) \\ 
+k(x _{* ,1} , x_2) & k(x _{* ,2} , x_2) \\
+k(x _ {* ,1} , x _3) & k(x _{* ,2} , x_3) 
+\end{bmatrix} = \begin{bmatrix}
+0 & 0\\ 
+2 & 8\\ 
+3 & 12\end{bmatrix} $$
+
+Our prediction will be the mean of the postier distribution:
+
+$$\mu_* = k_*^T K^{-1} Y$$
+
+We can plug in our values and solve:
+
+$$ \mu _* = \begin{bmatrix}
+0 & 2 & 3 \\
+0 & 8 &12 
+\end{bmatrix} \begin{bmatrix}
+0.000001 & 0 & 0 \\
+0 & 4.000001 & 6 \\
+0 & 6 & 9.000001 \end{bmatrix} ^{-1} \begin{bmatrix}
+0 \\
+4 \\ 
+6 \end{bmatrix} = \begin{bmatrix}
+2.000 \\
+8.000 \end{bmatrix}$$
+
+We can also compute the variance at the test points which will tell us the uncertainty of the prediction:
+
+First we will need to compute the covariance matrix of the test points:
+
+$$k=\begin{bmatrix}
+k(x _{* ,1}, x _{* ,1}) & k(x _{* ,1}, x _{* ,2} ) \\
+k(x _{* ,2}, x _{* ,1} )& k(x _{* ,2}, x _{* ,2} ) \end{bmatrix}
+= \begin{bmatrix} 
+1 & 4\\
+4& 16 \end{bmatrix}$$
+
+Now we can plug all our numbers into the equation for the variance:
+
+$$
+\sigma _* ^2 = k(x _* , x _* ) - k _* ^T K^{-1} k _* = \begin{bmatrix}
+1 & 4 \\
+4 & 16 \end{bmatrix} -  \begin{bmatrix}
+0 & 2 & 3 \\
+0 & 8 &12 
+\end{bmatrix}  \begin{bmatrix}
+0.000001 & 0 & 0 \\
+0 & 4.000001 & 6 \\
+0 & 6 & 9.000001 \end{bmatrix} ^{-1} 
+\begin{bmatrix}
+0 & 0\\ 
+2 & 8\\ 
+3 & 12\end{bmatrix} =
+\begin{bmatrix}
+0 & 0 \\
+0 & 0 \end{bmatrix}
+$$
+
+The diagonal variances correspond with each data point. Then the standard deviation for each point will be $\sigma_* = \sqrt{\sigma^2 _*}$. So in this simple example on the test case the uncertainty is 0. <br><br>
+
+Now we will take $x=2.5$ and predict the value of y and the uncertainty of the prediction exactly how we just did on the testing data we get $y=5.000$ and $\sigma =0$. 
+
