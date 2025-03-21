@@ -212,8 +212,42 @@ There are some ways to help prevent this problem. One important factor is amount
 Another important concept is validation data. I briefly mentioned it previously but said nothing beyond that. The inclusion of validation data is used for mitigating overfitting. This process works by setting aside a subset of training data. This data will be used at the end of an epoch to check in and see how well the training is going. The goal will be to minimize the loss of the validation data rather than the loss of the training data. 
 
 #### GAUSSIAN PROCESS REGRESSION (GPR)
-Gaussian process regression is a probabilistic kernel based method. 
+Gaussian process regression is a probabilistic kernel based method. The nice thing about GPR is you not only get the point prediction you also obtain the confidence of that prediction.  
 
 Assume $f(x),f(y) \sim Normal( \mu, \Sigma)$
 $y|x$
 We assume $\mu=0$ and we use kernels for approximating the covariance matrix $\Sigma$. Popular is radial basis function (RBF) kernel. Some data points will have more influence on you.  
+
+$$P(f|X)= N (f| \mu, K)$$
+
+$X=[x_1,..., x_n]$ are the the data points f are functions values, $\mu$ mean function and K is kernel function. Mean defaults to zero. Guassian model is a distribution over possible functions where shapes are defined by K that fit a set of points. <br>
+
+We make the assumption that our data follows a multivariant normal distribution. <br><br>
+
+Let's now walk through the process. First let's choose our kernel function, this function will define the smoothness of our prediction function. Although we will define other later, for this case we will use the simple linear kernel function: $k(x_i,x_j)=x_ix_j$. We will then define a kernel covariance matrix from our training points and kernel function:
+
+$$K=\begin{bmatrix}
+k(x_1,x_1) & k(x_1,x_2) & k(x_1,x_3) \\
+k(x_2,x_1) & k(x_2,x_2) & k(x_2,x_3) \\
+k(x_3,x_1) & k(x_3,x_2) & k(x_3,x_3)
+\end{bmatrix} = \begin{bmatrix}
+0 & 0 & 0 \\
+0 & 4 & 6 \\
+0 & 6 & 9 \end{bmatrix} $$
+
+We will eventually take the inverse of this matrix so the 0 in the diagonal will present an issue. To account for this we will add a small value to the diagonals $K+\alpha I$. We will use $\alpha=1e-6$. 
+Now whe want to make predictions for our test data so we will calculate our covariance matrix for the testing data.
+
+
+So we want to predict the value of y given x so we can define the posterior distribution:
+
+$$p(f_* |x_* ,X,y) \sim N(\mu_* , \sigma ^2_* )$$
+
+Where $\mu_*=k_*^T(K)^{-1}y$ 
+
+We will first compute the kernel between the testing and training points:
+
+
+Then we can compute the variance 
+
+$$\sigma _* ^2 = k(x _*, x _* ) - k _* ^T K^{-1} k _* $$
