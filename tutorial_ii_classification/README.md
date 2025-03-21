@@ -45,8 +45,8 @@ $$ \begin{bmatrix}
 0 & 0 & 0\\
 -1 & -2 & -1 \end{bmatrix}$$
 
-Now if we pass these kernels over the image using convolution and fill out the new values we will get the following images. Notice how each one emphasize the edges horizontally and vertically. This kernel is used to create new versions of the same image that highlight specific features.
+Now if we pass these kernels over the image using convolution and fill out the new values we will get the following images. Notice how each they emphasize the edges horizontally and vertically respectively. This kernel is used to create new versions of the same image that highlight specific features.
 
 <img src="edge.png" alt="edgedetection" style="width:70%;">
 
-This process is what CNN's are doing. However, we do not have defined kernels as we don't know what features we are looking for. So we set those with trainable parameters. That way the neural network and determine kernels that will result in the best model performance. 
+What happens if you don't know what kernel to use for highlighting specific features or if you don't know what features are important for your application? This brings us to Convolutional Neural Networks. What we just walked through is the process used in CNN's however, they do not use predefined kernels. Instead a size is chosen and initalized with trainable weights. That way the neural network and determine kernels that will result in the best model performance. 
