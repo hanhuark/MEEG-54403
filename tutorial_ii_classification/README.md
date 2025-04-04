@@ -21,29 +21,11 @@ Let's start with a very simple example dataset to learn the basic concepts of cl
 |weight|ear shape|tail length|animal|
 |-----|---|----|---|
 |4.0|pointed|25|cat|
-|25|floppy|40|dog|
-|3.5|pointed|22|cat|
-|5.0|pointed|20|cat|
-|30|floppy|35|dog|
-|20|floppy|33|dog|
-
-We then need to randomly select test data so that we can get an idea of how well the model performs. Here is our test data we will set aside:
-
-|weight|ear shape|tail length| animal|
-|--|--|--|--|
-|25| floppy|40|dog|
-|5.0|pointed|20|cat|
-
-Which leaves us with the following training data:
-
-|weight|ear shape|tail length|animal|
-|-----|---|----|---|
-|4.0|pointed|25|cat|
 |3.5|pointed|22|cat|
 |30|floppy|35|dog|
 |20|floppy|33|dog|
 
-Next let's prepare our data. We will want numeric inputs so we need some way of handeling the ear shape and animal variables. We will need to perform categorical encoding. There are two main types; label encoding or one-hot encoding. For label encoding each category is assigned an integer. For one-hot encoding each value is converted to an array with 0's and 1's in columns corresponding to the category. Let's take a look at this visually: <br><br>
+Once again you would set aside some data for testing your model but we will pretend that has already been done here so this is the training data. Next let's prepare our data. We will want numeric inputs so we need some way of handeling the ear shape and animal variables. We will need to perform categorical encoding. There are two main types; label encoding or one-hot encoding. For label encoding each category is assigned an integer. For one-hot encoding each value is converted to an array with 0's and 1's in columns corresponding to the category. Let's take a look at this visually: <br><br>
 For label encoding: let's say pointed=0, floppy = 1 and cat=0, dog=1. So our training data would become:
 
 |weight|ear shape|tail length|animal|
