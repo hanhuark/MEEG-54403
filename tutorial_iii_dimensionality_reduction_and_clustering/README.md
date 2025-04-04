@@ -269,6 +269,36 @@ plt.show()
 ```
 
 #### K-MEANS CLUSTERING
-Another type of unsupervised learning is clustering. This is the process of grouping data together based on their similarities. There are several different methods but one common and straight forward method is K-Means clustering. For this method you first pick how many clusters you want to create. 
+Another type of unsupervised learning is clustering. This is the process of grouping data together based on their similarities. There are several different methods but one common and straight forward method is K-Means clustering. First, let's get a simple dataset. Say we have the following data that describes two animals. We don't know which data belongs to which but we want to split the data into to groups that hopefully correspond with the two different animals.
 
-There initialization of the centriods can affect the clusters. 
+|id|weight|height|
+|--|--|--|
+|1|40|20|
+|2|2.5|10|
+|3|55|26|
+|4|3|8|
+
+For this method you first pick how many clusters you want to create. Since we are looking for two animals we will choose 2 clusters. Now we randomly select "centroids" for the clusters. In this case we will choose (2,11) and (6,8). 
+
+Now we will calculate the distance from every point to both centroids. We will use the euclidean distance formula:
+
+$$ Distance(x,y) = \sqrt{\sum^n_{i=1} (x_i-y_i)^2)}$$
+
+|id|distance (2,11)|distance (6,8)|
+|--|--|--|
+|1|39.05|36.05|
+|2|1.12|4.03|
+|3|55.08|52.20|
+|4|3.16|3|
+
+Then, each point is assigned a cluster based on which centroid is the closest. So this this case cluster 1 will consist of point 2 and cluster 2 will consist of points 1,3, and 4. Now, two new centroids are defined as the center of the clusters. For cluster 1 the new centroid will be (2.5,11) and for cluster 2 it will be ((40+55+3)/3, (20+26+8)/3)=(32.67,18). With these new clusters we repeat the process again:
+
+1. Calcuate distance from clusters
+2. Assign each point to closest centroid
+3. Calculate new centroid of clusters
+
+This will continue until the centroids do not change. 
+After performing these operations 2 more times we get that the two centroids are (2.75,9) and (47.5,23). Cluster 1 consists of points 2 and 4 and cluster 2 consists of points 1 and 3. 
+
+
+The initialization of the centriods can affect the clusters. 
