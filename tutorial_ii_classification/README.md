@@ -91,14 +91,23 @@ $$BCE(y,\hat{y})= - [y\cdot log(\hat{y}) +(1-y)\cdot log(1-\hat{y})]$$
 
 Now that we have a loss function this process is exactly the same as the regression neural network. We will just use back propogation to update all the weights iteratively in order to lower the loss. Then, once the model is trained we can perform classification. <br><br>
 
-Let's talke a bit about 
+Let's talk a bit about multi-class classification. This is where we have more than two classes that the inputs could belong to. For example, predicting between cats, dogs, and foxes. For this instead of having one single output neuron there would be a number of neurons equal to the the number of classes. Additionally, two other things change; loss function and last layer activation function. For the last layer, we will now use a softmax activation function defined as:
 
+$$\hat{y_i} = \frac{e^{Z_i}}{\sum^n_{j=1}e^{Z_j}} $$
+
+This function just makes it so the outputs for one input sum up to one where n is the number of classes and $Z_i$ is the raw score for class i. 
+
+The loss function used depends on the type of encodings you use for the labels. For label encodings you would use sparse categorical loss for one hot encodings you would use categorical cross entropy. Where categorical cross entropy is defined as:
+
+$$ CCE(y,\hat{y}) = - \sum^n_{i=1} y_i log(\hat{y_i})$$
+
+Now let's talk performance metrics. ROC, Confusion Matrix
 
 
 #### CONVOLUTIONAL NEURAL NETWORKS
-Now for this discussion we will need to have a dataset in mind. We will uses images because that is what your homework assignment is about but keep in mind this could be done for any input datatype. An image consists of a set of pixel values that describe the color or intensity. For grey scale images each pixel has one value between 0 and 255. For colored images, each pixel has 3 values for the 3 seperate channels (rgb). Our dataset will be grey scale. 
+This talk has been about general classification but we will be using images. For images we need ways of extracting features to then predict the class. An image consists of a set of pixel values that describe the color or intensity. For grey scale images each pixel has one value between 0 and 255. For colored images, each pixel has 3 values for the 3 seperate channels (rgb). Our dataset will be grey scale. 
 
-When it comes to image analysis, CNN's are typically to way to go. CNN's are great at extracting features from images that are then used in predictions. To give you a better understanding, we will start with a small discussion using some image processing methods. Kernels (or filters) have been used for several applications in image processing. They are used for blurring/ smoothing images, sharpening images, or highlighting edges in images. Where a kernel is defined as a matrix of size mxn:
+When it comes to neural network image analysis, CNN's are typically to way to go. CNN's are great at extracting features from images that are then used in predictions. To give you a better understanding, we will start with a small discussion using some image processing methods. Kernels (or filters) have been used for several applications in image processing. They are used for blurring/ smoothing images, sharpening images, or highlighting edges in images. Where a kernel is defined as a matrix of size mxn:
 
 $$ K= \begin{bmatrix} 
 W_{11} &.. & W_{1n} \\
@@ -132,8 +141,12 @@ Now if we pass these kernels over the image using convolution and fill out the n
 
 <img src="edge.png" alt="edgedetection" style="width:70%;">
 
-What happens if you don't know what kernel to use for highlighting specific features or if you don't know what features are important for your application? This brings us to Convolutional Neural Networks. What we just walked through is the process used in CNN's however, they do not use predefined kernels. Instead kernels of specified sizes are initalized with trainable weights. That way the neural network can determine kernels that will result in the best model performance. <br><br>
+What happens if you don't know what kernel to use for highlighting specific features or if you don't know what features are important for your application? This brings us to Convolutional Neural Networks. What we just walked through is the process used in CNN's however, they do not use predefined kernels. Instead kernels of specified sizes are initalized with trainable weights. That way the neural network can determine kernels that will result in the best model performance. For a convolutional layer the number of filters, size of the kernel and stride must be defined.<br><br>
 
-For the scenerio of classification
+So what we can do is pair these CNN layers with additional layers in a model for class prediction. The weights of these layers are updated with the rest of the layers during training. There are several layers that are commonly included such as: <br><br>
+
+Max pooling
+
+Flatten
 
 
