@@ -127,9 +127,81 @@ What happens if you don't know what kernel to use for highlighting specific feat
 
 So what we can do is pair these convolutional layers with additional layers in a model for class prediction. The weights of these layers are updated with the rest of the layers during training. There are several layers that are commonly paired with convolutional layers included such as: <br><br>
 
-Max pooling: These layers reduce the size of the image. As you can imagine, image datasets are quiet large so through max pooling layers we can downsample our data. It works by passing over the image and selecting the max value in a specified range of pixels. 
+**Max pooling**: These layers reduce the size of the image. As you can imagine, image datasets are quiet large so through max pooling layers we can downsample our data. It works by passing over the image and selecting the max value in a specified range of pixels. 
 
-Flatten: A flattening layer is used for reducing the image matrix to an array so it can be passed through the dense layers for prediction. If you have an inputs of (batch size, h, w) it will change it to (batch size, w $\cdot$ h)
+For example, say we have the following matrix that we want to perform max pooling with a size of 2 x 2 and stride of 2 to reduce the size:
 
-Another important concept for image processing using a CNN is data augementation. Data augmentation is always a good idea but especially when you have a small, simple dataset. Data augmentation is where you artificially increase your dataset by generating new data from the previous ones. This can look like random cropping, flipping the image, brightness adjustments, etc. This can improve your models ability to extract relevant features and avoid overfitting. Tensorflow has built in functionalities for handeling augmentation easily. 
+$$ \begin{bmatrix}
+1 & 2 & 3 & 4 \\
+10 & 12 & 8 &1\\
+9 & 2 & 6 & 24 \\
+6& 0& 4& 3\\
+\end{bmatrix}$$
+
+We will first start with the top left corner: 
+
+$$ \begin{bmatrix}
+1&2\\
+10&12\\
+\end{bmatrix}$$
+
+Performing max pooling, we take the highest value which is 12. Then we shift this window by 2 (the stride):
+
+$$ \begin{bmatrix}
+3 & 4 \\
+8 & 1\\
+\end{bmatrix}$$
+
+Then we take the highest value which is 8. Now, we go back to the left side but shift the window down 2.
+
+$$ \begin{bmatrix}
+9&2\\
+6&0\\
+\end{bmatrix}$$
+
+Then, we take 9 from this section. We continue this process until the entire matrix has been covered. Now we construct our new, reduced dimension matrix as:
+
+$$ \begin{bmatrix}
+
+**Flatten**: A flattening layer is used for reducing the image matrix to an array so it can be passed through the dense layers for prediction. If you have an inputs of (batch size, h, w) it will change it to (batch size, w $\cdot$ h)
+
+**Padding**: Another concept used within CNN's is padding. Due to the nature of a CNN with a pass of a filter the dimension of the image will decrease depending on the size of the kernel and stride. In cases where you want to avoid this reduction padding will be added to the exterior of the matrix. For example consider the simple matrix again:
+
+$$ \begin{bmatrix}
+1 & 2 & 3 & 4 \\
+10 & 12 & 8 &1\\
+9 & 2 & 6 & 24 \\
+6& 0& 4& 3\\
+\end{bmatrix}$$
+
+If we were to perform convolution with a 2 by 2 kernel and stride of 1 we might get something like this (assuming all weights are 1 and biases are 0):
+
+$$ \begin{bmatrix}
+25 & 25 & 16 \\
+33&28&39 \\
+17&12&37\\
+\end{bmatrix}$$
+
+You can see how the matrix went from 4 by 4 to a 3 by 3. To avoid this we can implement padding. For this example we will just add zeros around the matrix but keep in mind there are other types of padding:
+
+$$ \begin{bmatrix}
+0&0&0&0&0\\
+0&1 & 2 & 3 & 4 \\
+0&10 & 12 & 8 &1\\
+0&9 & 2 & 6 & 24 \\
+0&6& 0& 4& 3\\
+\end{bmatrix}$$
+
+So now the new output after convolution becomes:
+
+$$ \begin{bmatrix}
+1&3&5&7 \\
+11&25&25&16\\
+19&33&28&39\\
+15&17&12&37\\
+\end{bmatrix}$$
+
+Which retains the original shape.
+
+**Data Augmentation**: Another important concept for image processing using a CNN is data augementation. Data augmentation is always a good idea but especially when you have a small, simple dataset. Data augmentation is where you artificially increase your dataset by generating new data from the previous ones. This can look like random cropping, flipping the image, brightness adjustments, etc. This can improve your models ability to extract relevant features and avoid overfitting. Tensorflow has built in functionalities for handeling augmentation easily. 
 
