@@ -164,6 +164,30 @@ Then, we take 9 from this section. We continue this process until the entire mat
 $$ \begin{bmatrix}
 
 **Flatten**: A flattening layer is used for reducing the image matrix to an array so it can be passed through the dense layers for prediction. If you have an inputs of (batch size, h, w) it will change it to (batch size, w $\cdot$ h)
+For example, say we have batche size of 3 and each is a matrix as follows:
+
+$$ \begin{bmatrix}
+1&2\\
+3&4 \\
+\end{bmatrix}, \begin{bmatrix}
+3&5\\
+7&9\\
+\end{bmatrix}, \begin{bmatrix}
+7&0\\
+1&3\\
+\end{bmatrix}$$
+
+As you can see, the dimension of this data is (batch size, h, w) or (3, 2, 2). If we want to flatten them we will just concatentate the rows of each matrix:
+
+$$\begin{bmatrix}
+1&2&3&4\\
+\end{bmatrix},\begin{bmatrix}
+3&5&7&9\\
+\end{bmatrix}, \begin{bmatrix}
+7&0&1&3\\
+\end{bmatrix}$$
+
+Now the new dimension is (3,4). 
 
 **Padding**: Another concept used within CNN's is padding. Due to the nature of a CNN with a pass of a filter the dimension of the image will decrease depending on the size of the kernel and stride. In cases where you want to avoid this reduction padding will be added to the exterior of the matrix. For example consider the simple matrix again:
 
