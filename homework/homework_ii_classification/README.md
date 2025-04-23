@@ -73,6 +73,40 @@ $$BCE(y,\hat{y})= - [y\cdot log(\hat{y}) +(1-y)\cdot log(1-\hat{y})]$$
 
 Now that we have a loss function this process is exactly the same as the regression neural network. We will just use back propogation to update all the weights iteratively in order to lower the loss. Then, once the model is trained we can perform classification. <br><br>
 
+In python, if we wanted to make a binary classification model for our dataset it would look something like this:
+
+```python
+import tensorflow as tf
+import numpy as np
+
+# Sample data
+X = np.array([
+    [4.0, 0, 25],
+    [3.5, 0, 22],
+    [30.0, 1, 35],
+    [20.0, 1, 33]
+], dtype=np.float32)
+
+y = np.array([0, 0, 1, 1], dtype=np.float32)
+
+# Define input
+inputs = tf.keras.Input(shape=(3,))  # 3 features
+
+# Simple feedforward network
+x = tf.keras.layers.Dense(8, activation='relu')(inputs)
+x = tf.keras.layers.Dense(4, activation='relu')(x)
+outputs = tf.keras.layers.Dense(1, activation='sigmoid')(x)  # binary classification
+
+# Build model
+model = tf.keras.Model(inputs=inputs, outputs=outputs)
+
+# Compile
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# Train
+model.fit(X, y, epochs=50, verbose=1)
+```
+
 Let's talk a bit about multi-class classification. This is where we have more than two classes that the inputs could belong to. For example, predicting between cats, dogs, and foxes. For this instead of having one single output neuron there would be a number of neurons equal to the the number of classes. Additionally, two other things change; loss function and last layer activation function. For the last layer, we will now use a softmax activation function defined as:
 
 $$\hat{y_i} = \frac{e^{Z_i}}{\sum^n_{j=1}e^{Z_j}} $$
@@ -82,6 +116,44 @@ This function just makes it so the outputs for one input sum up to one where n i
 The loss function used depends on the type of encodings you use for the labels. For label encodings you would use sparse categorical loss for one hot encodings you would use categorical cross entropy. Where categorical cross entropy is defined as:
 
 $$ CCE(y,\hat{y}) = - \sum^n_{i=1} y_i log(\hat{y_i})$$
+
+In python, if you wanted to make a multi-class classification model it might look like this:
+
+```python
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.utils import to_categorical
+
+# Features: [weight, ear shape, tail length]
+X = np.array([
+    [4.0, 0, 25],
+    [3.5, 0, 22],
+    [30.0, 1, 35],
+    [20.0, 1, 33],
+    [2.5, 2, 5],
+    [2.0, 2, 6]
+], dtype=np.float32)
+
+# Labels (0 = Cat, 1 = Dog, 2 = Fox)
+y = np.array([0, 0, 1, 1, 2, 2])
+y_cat = to_categorical(y, num_classes=3)
+
+# Build model using functional API
+inputs = tf.keras.Input(shape=(3,))
+x = tf.keras.layers.Dense(8, activation='relu')(inputs)
+x = tf.keras.layers.Dense(4, activation='relu')(x)
+outputs = tf.keras.layers.Dense(3, activation='softmax')(x)
+
+model = tf.keras.Model(inputs=inputs, outputs=outputs)
+
+# Compile the model for categorical classification
+model.compile(optimizer='adam',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+
+# Train the model
+model.fit(X, y_cat, epochs=100, verbose=1)
+```
 
 Now let's talk performance metrics. ROC, Confusion Matrix
 
@@ -127,6 +199,16 @@ What happens if you don't know what kernel to use for highlighting specific feat
 
 So what we can do is pair these convolutional layers with additional layers in a model for class prediction. The weights of these layers are updated with the rest of the layers during training. There are several layers that are commonly paired with convolutional layers included such as: <br><br>
 
+In python, you can use tensorflow to add a convolutional layer for a 200 by 200 gray scale image as:
+
+```python
+import tensorflow as tf
+from tensorflow.keras import layers, models, Input
+
+inputs=Input(shape=(200,200,1))
+x=layers.Conv2D(filters=32, kernel_size(3,3),strides=(1,1), activation='relu')(inputs)
+```
+
 **Max pooling**: These layers reduce the size of the image. As you can imagine, image datasets are quiet large so through max pooling layers we can downsample our data. It works by passing over the image and selecting the max value in a specified range of pixels. 
 
 For example, say we have the following matrix that we want to perform max pooling with a size of 2 x 2 and stride of 2 to reduce the size:
@@ -162,6 +244,20 @@ $$ \begin{bmatrix}
 Then, we take 9 from this section. We continue this process until the entire matrix has been covered. Now we construct our new, reduced dimension matrix as:
 
 $$ \begin{bmatrix}
+12& 8\\
+9&24\\
+\end{bmatrix}$$
+
+Let's add one of those layers to our code:
+
+```python
+import tensorflow as tf
+from tensorflow.keras import layers, models, Input
+
+inputs=Input(shape=(200,200,1))
+x=layers.Conv2D(filters=32, kernel_size(3,3),strides=(1,1), activation='relu')(inputs)
+x=layers.MaxPooling2D(pool_size(2,2)(x)
+```
 
 **Flatten**: A flattening layer is used for reducing the image matrix to an array so it can be passed through the dense layers for prediction. If you have an inputs of (batch size, h, w) it will change it to (batch size, w $\cdot$ h)
 For example, say we have batche size of 3 and each is a matrix as follows:
@@ -188,6 +284,34 @@ $$\begin{bmatrix}
 \end{bmatrix}$$
 
 Now the new dimension is (3,4). 
+
+Now lets add a flattening layer:
+
+```python
+import tensorflow as tf
+from tensorflow.keras import layers, models, Input
+
+inputs=Input(shape=(200,200,1))
+x=layers.Conv2D(filters=32, kernel_size(3,3),strides=(1,1), activation='relu')(inputs)
+x=layers.MaxPooling2D(pool_size(2,2)(x)
+x=layers.Flatten()(x)
+```
+
+Now, we have an input similar to our initial discussion so we will just add some dense layers and a single neuron with sigmoid activation function for binary classification:
+
+```python
+import tensorflow as tf
+from tensorflow.keras import layers, models, Input
+
+inputs=Input(shape=(200,200,1))
+x=layers.Conv2D(filters=32, kernel_size(3,3),strides=(1,1), activation='relu')(inputs)
+x=layers.MaxPooling2D(pool_size(2,2)(x)
+x=layers.Flatten()(x)
+x=layers.Dense(64, activation='relu')(x)
+outputs=layers.Dense(1, activation='sigmoid)(x)
+
+model=tf.keras.Model(inputs=inputs, outputs=outputs)
+```
 
 **Padding**: Another concept used within CNN's is padding. Due to the nature of a CNN with a pass of a filter the dimension of the image will decrease depending on the size of the kernel and stride. In cases where you want to avoid this reduction padding will be added to the exterior of the matrix. For example consider the simple matrix again:
 
@@ -226,6 +350,12 @@ $$ \begin{bmatrix}
 \end{bmatrix}$$
 
 Which retains the original shape.
+
+To add python to your convolutional layers in python just set the variable "padding" to same:
+
+```python
+x=layers.Conv2D(filters=32, kernel_size(3,3),strides=(1,1),padding="same", activation='relu')
+```
 
 **Data Augmentation**: Another important concept for image processing using a CNN is data augementation. Data augmentation is always a good idea but especially when you have a small, simple dataset. Data augmentation is where you artificially increase your dataset by generating new data from the previous ones. This can look like random cropping, flipping the image, brightness adjustments, etc. This can improve your models ability to extract relevant features and avoid overfitting. Tensorflow has built in functionalities for handeling augmentation easily. 
 
