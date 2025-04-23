@@ -49,6 +49,8 @@ def unet_model(input_size=(128, 128, 3)):
 
 For object detection, you will be using a dataset of your choice from [here](https://public.roboflow.com/object-detection) and the model yolov8 from ultralytics. 
 
+**Tutorial**:<br> [![colab1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Rrw1nVSojROv_trXraC6x9hQABRAiduE?usp=sharing) 
+
 ---
 #### INTRODUCTION
 Object detection and segmentation are two computer vision tasks. Object detection is the task of identifying and locating specific objects within an image. These models typically return bounding boxes that capture the region of interest. Segmentation, on the other hand gives a full mask of the object, it specifies which class each pixel belongs too.
