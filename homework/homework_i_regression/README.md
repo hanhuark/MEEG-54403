@@ -1,5 +1,5 @@
 ### Assignment 1 - Regression:
-In pool boiling experiments, the boiling heat flux can be estimated as the supplied power divided by the heater surface. However, this estimation will not be very accurate due to heat loss and other non-ideal conditions in experiments, especially for thin-film heaters with relatively low thermal conductivities (e.g., ITO heaters). Conventionally, finite-element simulations are used to evaluate the heat loss to validate or correct the experimental assumptions. Machine learning provides another perspective for tackling this issue. The heat loss and other non-ideal conditions can be captured and accounted for by the hidden layers of neural networks. The target of Problem 1-1 is to develop an MLP model to predict heat flux using temperature. The data set includes the temperature and the heat flux during a transient pool boiling test. a. Set up and train an MLP and a GPR model to predict the heat flux based on the temperature. Report the training curves (training/validation accuracy/loss vs. epoch) and the training time (time/epoch, time till the best model). b. Circumvent the effects of overfitting using k-fold cross-validation (e.g., using 100 foldings). <br><br>
+Regression is a fundamental machine learning task. This homework assignment will have you building and training mulitple types of regression models for comparision. You will be using regression models to predict the win margin of razorback football games. View the homework 1 pdf file for a full description of the assignment. <br><br>
 
 **Tutorial**:<br> [![colab1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/100jLm4_UesIVNyjq-mCEIVxE28kXYqX6?usp=sharing) 
 
@@ -77,7 +77,7 @@ print("x=2.5, y=", model.predict(np.array([2.5]).reshape(-1,1)))
 #### NEURAL NETWORKS
 The least squares linear regression method worked great for this simple dataset but with more complex non-linear datasets more complex models are needed to fully describe the translation from x to y. Deep learning methods describe models with multiple layers to extract features. The simplest of these is the multilayer perceptron. This model is inspired by the neurons in the human brain. The network is composed of multiple layers of neurons. Where one neuron, shown in figure NUMBER, describes a mathematical function. Specifically:
 
-$$ y=\sigma \left( \sum W_ix_i+b \right)$$
+$$ y=\sigma \left( b+ \sum W_ix_i \right)$$
 
 Where $x_i$ are the inputs to the neuron, $W_i$ are the weights, b is a bias and sigma is an activation function. More on what all these mean later. To construct a mlp, you just specify neurons and layers. The activation functions can be used to add nonlinearity to the model or to specify the output type. For regression, the activation function of the last layer will be linear. This activation function is defined as (f(x)=x) or in other words the input remains unchanged. <br><br>
 Say we have the simplest neural network we could create. It has one input, one neuron, one layer and the linear activation function.  The equation of the neuron will be y=Wx+b. <br><br>
