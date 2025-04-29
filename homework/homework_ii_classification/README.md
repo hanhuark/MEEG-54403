@@ -193,9 +193,11 @@ $$ \begin{bmatrix}
 
 Now if we pass these kernels over the image using convolution and fill out the new values we will get the following images. Notice how one emphasizes the edges horizontally and the other emphasizes the edges vertically. A kernel is used to create new versions of the same image that highlight specific features.
 
-<img src="edge.png" alt="edgedetection" style="width:70%;">
+<img src="./static/edge.png" alt="edgedetection" style="width:70%;">
 
-What happens if you don't know what kernel to use for highlighting specific features or if you don't know what features are important for your application? This brings us to Convolutional Neural Networks. What we just walked through is the process used in CNN's however, they do not use predefined kernels. Instead kernels of specified sizes are initalized with trainable weights. That way the neural network can determine kernels that will result in the best model performance. For a convolutional layer the number of filters, size of the kernel and stride must be defined.<br><br>
+What happens if you don't know what kernel to use for highlighting specific features or if you don't know what features are important for your application? This brings us to Convolutional Neural Networks. What we just walked through is the process used in CNN's however, they do not use predefined kernels. Instead kernels of specified sizes are initalized with trainable weights. That way the neural network can determine kernels that will result in the best model performance. For a convolutional layer the number of filters, size of the kernel and stride must be defined.The figure below shows the general process of passing a kernel over an image and outputing a new smaller matrix.<br><br>
+
+<img src="./static/cnn.png" alt="Overfitting" style="width:50%;">
 
 So what we can do is pair these convolutional layers with additional layers in a model for class prediction. The weights of these layers are updated with the rest of the layers during training. There are several layers that are commonly paired with convolutional layers included such as: <br><br>
 
