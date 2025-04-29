@@ -76,7 +76,7 @@ $$ det \left( \begin{bmatrix}
 Then solving for $\lambda$ gives $\lambda = 1.697, \lambda = 9.303$. You then plug these back into the equation to get the corresponding eigenvectors $v=[-1.673,1] $ and $v=[0.598,1] $, respectively.
 These eigen vectors now define our new space. Previously, our space was defined by the vectors [1,0] and [0,1]. Figure NUMBer shows the original basis and the new basis.
 
-<img src="eigenvectors.png" alt="Description" style="width:50%;">
+<img src="./static/eigenvectors.png" alt="Description" style="width:50%;">
 
 You can actually represent every data point as a linear combination of the basis vectors. For example $[x1,x2]=[0.2,2.6]$
 
@@ -161,7 +161,7 @@ $$2.0*\begin{bmatrix}
 3.996 \\
 6.4 \end{bmatrix} $$
 
-<img src="pcadata.png" alt="Description" style="width:50%;">
+<img src="./staticpcadata.png" alt="Description" style="width:50%;">
 
 This figure shows how the data is transformed. You can see how all the transformed points lie on the new basis so they are now in one dimension. You can also see how some information is lost but it still keeps the general trend of the data. <br><br>
 
@@ -298,7 +298,9 @@ Then, each point is assigned a cluster based on which centroid is the closest. S
 3. Calculate new centroid of clusters
 
 This will continue until the centroids do not change. 
-After performing these operations 2 more times we get that the two centroids are (2.75,9) and (47.5,23). Cluster 1 consists of points 2 and 4 and cluster 2 consists of points 1 and 3. 
+After performing these operations 2 more times we get that the two centroids are (2.75,9) and (47.5,23). Cluster 1 consists of points 2 and 4 and cluster 2 consists of points 1 and 3. The figure below shows the points and how the initial centroid changes and consequently clusters change throughout the iterations.
+
+<img src="./static/kmeans.png" alt="Overfitting" style="width:70%;">
 
 
 The initialization of the centriods can affect the clusters. 
