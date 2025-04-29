@@ -75,9 +75,11 @@ print("x=2.5, y=", model.predict(np.array([2.5]).reshape(-1,1)))
 ```
 
 #### NEURAL NETWORKS
-The least squares linear regression method worked great for this simple dataset but with more complex non-linear datasets more complex models are needed to fully describe the translation from x to y. Deep learning methods describe models with multiple layers to extract features. The simplest of these is the multilayer perceptron. This model is inspired by the neurons in the human brain. The network is composed of multiple layers of neurons. Where one neuron, shown in figure NUMBER, describes a mathematical function. Specifically:
+The least squares linear regression method worked great for this simple dataset but with more complex non-linear datasets more complex models are needed to fully describe the translation from x to y. Deep learning methods describe models with multiple layers to extract features. The simplest of these is the multilayer perceptron. This model is inspired by the neurons in the human brain. The network is composed of multiple layers of neurons. Where one neuron, shown in the figure below, describes a mathematical function. Specifically:
 
 $$ y=\sigma \left( b+ \sum W_ix_i \right)$$
+
+<img src="./static/neuron.png" alt="Neuron" style="width:70%;">
 
 Where $x_i$ are the inputs to the neuron, $W_i$ are the weights, b is a bias and sigma is an activation function. More on what all these mean later. To construct a mlp, you just specify neurons and layers. The activation functions can be used to add nonlinearity to the model or to specify the output type. For regression, the activation function of the last layer will be linear. This activation function is defined as (f(x)=x) or in other words the input remains unchanged. <br><br>
 Say we have the simplest neural network we could create. It has one input, one neuron, one layer and the linear activation function.  The equation of the neuron will be y=Wx+b. <br><br>
@@ -180,7 +182,9 @@ This is a great question. The process of upscaling is pretty simple now that we 
 3.	Backward pass: calculate partial derivatives of loss function via chain rule
 4.	Optimizer: update model weights
    
-These processes will still be performed for a larger network. By using chain rule for step 3 and 4 the gradients for each weight and bias can be efficiently solved for. For example consider the network in figure NUMBER. Each nueron has a function associated with it. So what we will want to do is calculate the partial deveriviates for each neuron.
+These processes will still be performed for a larger network. By using chain rule for step 3 and 4 the gradients for each weight and bias can be efficiently solved for. For example consider the network in figure below. Each nueron has a function associated with it. So what we will want to do is calculate the partial deveriviates for each neuron.
+
+<img src="./static/network.png" alt="Overfitting" style="width:70%;">
 
 $$ y=\sigma \left( \sum W_ix_i+b \right)$$
 
@@ -204,7 +208,7 @@ The optimizer is how we update the learnable parameters. The most basic of these
 
 There are several things you have to look out for when training models. One important issue you need to avoid is overfitting. This can make it look like your training is going well but when checking on your testing data it has horrible performance. Overfitting is especially a danger with noisy data, you want to make sure your model describes trends rather than specific noise. For example, figure NUMBER shows two functions that describe the same set of data. The blue are the values the model was trained on and the star shows a testing data point. You can see the right function yeilds a closer prediction to the testing data. <br><br>
 
-<img src="overfit.png" alt="Overfitting" style="width:70%;">
+<img src="./static/overfit.png" alt="Overfitting" style="width:70%;">
 
 There are some ways to help prevent this problem. One important factor is amount of data. It is important to have a large dataset that covers several variations you might see in a deployed model. Also the use of validation data during training can help in stopping the training process before over fitting occurs. Additionally, the use of cross fold validation can also improve the training. Also shuffling the data can help avoid overfitting. 
 
@@ -212,7 +216,11 @@ There are some ways to help prevent this problem. One important factor is amount
 Another important concept is validation data. I briefly mentioned it previously but said nothing beyond that. The inclusion of validation data is used for mitigating overfitting. This process works by setting aside a subset of training data. This data will be used at the end of an epoch to check in and see how well the training is going. The goal will be to minimize the loss of the validation data rather than the loss of the training data. 
 
 #### GAUSSIAN PROCESS REGRESSION (GPR)
-Gaussian process regression is a probabilistic, kernel-based method. The nice thing about GPR is you not only get the point prediction you also obtain the confidence of that prediction. We will want to find a function that translates x to y. There are multiple that will fit our data. Gaussian Process Regression assumes these function values follow a multivariate normal distribution.  
+Gaussian process regression is a probabilistic, kernel-based method. The nice thing about GPR is you not only get the point prediction you also obtain the confidence of that prediction as shown in the figure below. 
+
+<img src="./static/gpr.png" alt="Overfitting" style="width:40%;">
+
+We will want to find a function that translates x to y. There are multiple that will fit our data. Gaussian Process Regression assumes these function values follow a multivariate normal distribution.  
 
 $f(x) \sim Normal( \mu, \Sigma)$
 
