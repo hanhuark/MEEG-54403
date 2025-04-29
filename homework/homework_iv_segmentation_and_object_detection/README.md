@@ -55,7 +55,7 @@ For object detection, you will be using a dataset of your choice from [here](htt
 #### INTRODUCTION
 Object detection and segmentation are two computer vision tasks. Object detection is the task of identifying and locating specific objects within an image. These models typically return bounding boxes that capture the region of interest. Segmentation, on the other hand gives a full mask of the object, it specifies which class each pixel belongs too. It is the process of partitioning the image into meaningfull parts. These models are used for computer vision processes so that machines can understand where and what objects are. They are used for autonomous vehicles, medical imaging analysis, agriculture applications, robotics, etc. 
 
- <img src="./static/overview.png" alt="Overfitting" style="width:70%;">
+ <img src="./static/overview1.png" alt="Overfitting" style="width:70%;">
 
 #### OBJECT DETECTION
 Object detection is used to locate and identify objects within an image. This model will take in an image and output a bounding box with class prediction. 
