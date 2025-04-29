@@ -161,7 +161,7 @@ $$2.0*\begin{bmatrix}
 3.996 \\
 6.4 \end{bmatrix} $$
 
-<img src="./staticpcadata.png" alt="Description" style="width:50%;">
+<img src="./static/pcadata.png" alt="Description" style="width:50%;">
 
 This figure shows how the data is transformed. You can see how all the transformed points lie on the new basis so they are now in one dimension. You can also see how some information is lost but it still keeps the general trend of the data. <br><br>
 
@@ -300,7 +300,7 @@ Then, each point is assigned a cluster based on which centroid is the closest. S
 This will continue until the centroids do not change. 
 After performing these operations 2 more times we get that the two centroids are (2.75,9) and (47.5,23). Cluster 1 consists of points 2 and 4 and cluster 2 consists of points 1 and 3. The figure below shows the points and how the initial centroid changes and consequently clusters change throughout the iterations.
 
-<img src="./static/kmeans.png" alt="Overfitting" style="width:70%;">
+<img src="./static/kmeans.png" alt="Overfitting" style="width:50%;">
 
 
 The initialization of the centriods can affect the clusters. 
