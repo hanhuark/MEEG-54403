@@ -85,4 +85,6 @@ A **state** is where the agent is. An **action** is what the agent can do for ex
 **Rewards** are what an agent gets for making a move (positive if good and negative if bad). And the **Q-Table** is what stores values corresponding to how good an action is.
 
 
-### Option 2: Generative 
+### Option 2: Generative Models
+
+A Generative
