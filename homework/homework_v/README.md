@@ -8,6 +8,8 @@ The data file vapor_fraction.txt includes the vapor fraction (second column, dim
 
 ### Option 1: Reinforcement Learning
 
+**Tutorial**:<br> [![colab1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11Qxu8kPlwHQBEB12R11LRJ6erQOk6FY1?usp=sharing) 
+
 Reinforcement learning is a type of machine learning that allows agents to learn with rewards and penalties. These models are often used for controlling robots. Q-Learning is a common and basic type of reinforcement learning and will be the type used in this assignment. 
 
 To help you understand we will walk through a very simple example. Pretend we have the following maze. We want to figure out how to get from the start to the goal. It is super obvious but let's use reinforcement learning for it just to explain the concepts. We will use q-learning for training an agent in our maze environment. For q-learning, we will first need to define the possible states. For this case we will use each coordinate as a state. Now we need to define the possible actions. In this case at each state it has the ability to move up or down (except at the top and bottom). 
