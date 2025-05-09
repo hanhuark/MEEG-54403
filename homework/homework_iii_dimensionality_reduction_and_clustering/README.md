@@ -4,6 +4,8 @@ Perform dimensionality reduction and clustering analysis of the same dataset use
 
 The dataset for this assignment can be accessed at https://data.mendeley.com/datasets/5kjnphrbsz/1
 
+![pca](./static/pcagif.gif)
+
 ---
 
 #### INTRODUCTION
