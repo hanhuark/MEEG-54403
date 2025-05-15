@@ -92,4 +92,6 @@ A **state** is where the agent is. An **action** is what the agent can do for ex
 
 ### Option 2: Generative Models
 
+**Tutorial**:<br> [![colab1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1RXDvPdT3ZjN9ax1FFKVB3pUVeOys6vLn?usp=sharing) 
+
 A Generative
