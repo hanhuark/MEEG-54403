@@ -94,4 +94,16 @@ A **state** is where the agent is. An **action** is what the agent can do for ex
 
 **Tutorial**:<br> [![colab1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1RXDvPdT3ZjN9ax1FFKVB3pUVeOys6vLn?usp=sharing) 
 
-A Generative
+#### Generative Adversarial Networks
+
+GAN's are a type of neural networks. They are used for generative realistic synthetic data. And are used in image generation (e.g., deep fakes), style transfer, super-resolution, etc. 
+The general idea is that there are two networks:
+
+*  A **generator** that creates realistic fake data
+*  A **discriminator** that tries to distinguish between real and the generated (fake) data (classification network) 
+
+These two models are trained together and "fight" against each other. The generator wants to create such realistic data that the discriminator can't tell whats real and fake and the discriminator wants to be so good at distinguishing between real and fake images. 
+
+The generator works by taking a random input and outputing the desired output shape. Several of these outputs and real data are then passed through the discriminator with the corresponding class labels (i.e., real or fake). Two custom loss functions are combined employed to improve the discriminator and generator. 
+
+There are a couple of common challenges with training GANs such as it being hard to balance the generator and discriminator or the generator producing similar outputs. 
