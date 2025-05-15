@@ -2,6 +2,8 @@
 Within engineering the use of segmentation and object detection have many applications. For example, segmentation can be used to obtain the approximate vapor fraction from boiling images. This assignment will have you using a couple popular semantic segmentation and object detection models.
 For semantic segmentation, you will use boiling images and corresponding masks made using labelme and a popular model UNET (which is provided here so you can just copy and put directly into your code): 
 
+![od](./static/objectdetection.gif)
+
 ```python
 def unet_model(input_size=(128, 128, 3)):
     inputs = layers.Input(input_size)
