@@ -1,4 +1,4 @@
-### Assignment 1 - Regression:
+### Topic 1 - Regression:
 Regression is a fundamental machine learning task. This homework assignment will have you building and training mulitple types of regression models for comparision. You will be using regression models to predict the win margin of razorback football games. View the homework 1 pdf file for a full description of the assignment. <br><br>
 
 **Tutorial**:<br> [![colab1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/100jLm4_UesIVNyjq-mCEIVxE28kXYqX6?usp=sharing) 
