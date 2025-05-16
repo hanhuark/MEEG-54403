@@ -118,3 +118,7 @@ $$
 
 
 There are a couple of common challenges with training GANs such as it being hard to balance the generator and discriminator or the generator producing similar outputs. 
+
+#### Diffusion Models
+
+### Large Language Models (LLMs)
