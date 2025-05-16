@@ -106,4 +106,17 @@ These two models are trained together and "fight" against each other. The genera
 
 The generator works by taking a random input and outputing the desired output shape. Several of these outputs and real data are then passed through the discriminator with the corresponding class labels (i.e., real or fake). Two custom loss functions are combined employed to improve the discriminator and generator. 
 
+Discriminator loss:
+
+$$
+L_D = \text{CE}(1, D(x_{\text{real}})) + \text{CE}(0, D(x_{\text{fake}}))
+$$
+
+Generator loss:
+
+$$
+L_G = \text{CE}(1, D(x_{\text{fake}}))
+$$
+
+
 There are a couple of common challenges with training GANs such as it being hard to balance the generator and discriminator or the generator producing similar outputs. 
