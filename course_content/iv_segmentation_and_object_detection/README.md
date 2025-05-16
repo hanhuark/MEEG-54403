@@ -1,4 +1,4 @@
-## Assignment 4 - Segmentation and Object Detection:
+## Topic 4 - Segmentation and Object Detection:
 Within engineering the use of segmentation and object detection have many applications. For example, segmentation can be used to obtain the approximate vapor fraction from boiling images. This assignment will have you using a couple popular semantic segmentation and object detection models.
 For semantic segmentation, you will use boiling images and corresponding masks made using labelme and a popular model UNET (which is provided here so you can just copy and put directly into your code): 
 
