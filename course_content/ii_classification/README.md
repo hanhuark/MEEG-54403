@@ -1,4 +1,4 @@
-## Assignment 2 - Image Classification
+## Topic 2 - Image Classification
 Classification has several applications for example automatic sorting. For this assignment, you will create a classification model to sort between nuts and bolts. 
 
 **Tutorial**:<br>
