@@ -1,1 +1,1 @@
-This folder includes project examples from students who have taken this tech elective at the University of Arkansas. 
+This folder includes project examples from students who have taken this tech elective at the University of Arkansas. Each folder represent one project and contains the source code, report, and supplemental materials (if applicable) for that project. 
