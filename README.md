@@ -1,10 +1,10 @@
 **For UofA students interested in enrolling in the machine learning class in Fall 2025:** If you cannot enroll in the course successfully, please use the following override forms: 
 
-ENGR Graduate Students: https://forms.office.com/pages/responsepage.aspx?id=xELHeRzmpU--iaPLVmqA0QFJWBwPcEBKrR3k9uL4ZXVUN1ZJTERQV0xZVUNMV0pQQ0JDSkZBV0FEMS4u&route=shorturl
+[ENGR Graduate Students](https://forms.office.com/pages/responsepage.aspx?id=xELHeRzmpU--iaPLVmqA0QFJWBwPcEBKrR3k9uL4ZXVUN1ZJTERQV0xZVUNMV0pQQ0JDSkZBV0FEMS4u&route=shorturl)
 
-ENGR Undergraduate Students: https://forms.office.com/Pages/ResponsePage.aspx?id=xELHeRzmpU--iaPLVmqA0QFJWBwPcEBKrR3k9uL4ZXVUMU5SWUozWFZIWEhIN1NKS1hYQTJLSTlGMC4u
+[ENGR Undergraduate Students](https://forms.office.com/Pages/ResponsePage.aspx?id=xELHeRzmpU--iaPLVmqA0QFJWBwPcEBKrR3k9uL4ZXVUMU5SWUozWFZIWEhIN1NKS1hYQTJLSTlGMC4u)
 
-Non-ENGR Students: https://forms.office.com/Pages/ResponsePage.aspx?id=xELHeRzmpU--iaPLVmqA0QFJWBwPcEBKrR3k9uL4ZXVUOUJNUldRMU1CUjY4MVI1SDQ2Q05NM1pOVC4u
+[Non-ENGR Students](https://forms.office.com/Pages/ResponsePage.aspx?id=xELHeRzmpU--iaPLVmqA0QFJWBwPcEBKrR3k9uL4ZXVUOUJNUldRMU1CUjY4MVI1SDQ2Q05NM1pOVC4u)
 
 # MEEG-44403/54403: Machine Learning for Mechanical Engineers
 [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=hanhuark/MEEG-54403)
