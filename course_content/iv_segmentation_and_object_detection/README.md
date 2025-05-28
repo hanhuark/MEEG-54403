@@ -3,9 +3,7 @@ Within engineering the use of segmentation and object detection have many applic
 For semantic segmentation, you will use boiling images and corresponding masks made using labelme and a popular model UNET (which is provided here so you can just copy and put directly into your code): 
 
 ![od](./static/objectdetection.gif)
-<br> 
 
-**Data**: <br> [![bdata](https://img.shields.io/badge/osf%20storage-red)](https://osf.io/zq9pc/files/osfstorage#)
 
 ```python
 def unet_model(input_size=(128, 128, 3)):
@@ -55,6 +53,9 @@ def unet_model(input_size=(128, 128, 3)):
 For object detection, you will be using a dataset of your choice from [here](https://public.roboflow.com/object-detection) and the model yolov8 from ultralytics. 
 
 **Tutorial**:<br> [![colab1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Rrw1nVSojROv_trXraC6x9hQABRAiduE?usp=sharing) 
+<br> 
+
+**Data**: <br> [![bdata](https://img.shields.io/badge/osf%20storage-red)](https://osf.io/zq9pc/files/osfstorage#)
 
 ---
 #### INTRODUCTION
