@@ -3,14 +3,13 @@
 The goal of this homework assignment is to give you the opportunity to explore an area you take interest in.
 
 
+**Data**: <br> [![bdata](https://img.shields.io/badge/osf%20storage-red)](https://osf.io/zq9pc/files/osfstorage#)
+
 ---
 
 ### Option 1: Reinforcement Learning
 
 **Tutorial**:<br> [![colab1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11Qxu8kPlwHQBEB12R11LRJ6erQOk6FY1?usp=sharing) 
-<br> 
-
-**Data**: <br> [![bdata](https://img.shields.io/badge/osf%20storage-red)](https://osf.io/zq9pc/files/osfstorage#)
 
 ![rl](./static/rlwalkgif.gif)
 
