@@ -1,8 +1,10 @@
 ## Topic 2 - Image Classification
 Classification has several applications for example automatic sorting. For this assignment, you will create a classification model to sort between nuts and bolts. 
 
-**Tutorial**:<br>
-[![colab1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11Tnvekzz4KN7ytTOJCA9HHvrKh7kVJ03?usp=sharing)
+**Tutorial**:<br>[![colab1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11Tnvekzz4KN7ytTOJCA9HHvrKh7kVJ03?usp=sharing)
+<br> 
+
+**Data**: <br> [![bdata](https://img.shields.io/badge/osf%20storage-red)](https://osf.io/zq9pc/files/osfstorage#)
 
 ---
 
