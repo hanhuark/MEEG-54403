@@ -8,6 +8,9 @@ The dataset for this assignment can be accessed at https://data.mendeley.com/dat
 
 **Tutorial**:<br>
 [![colab1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/19yckP8QllC1BwWGqc8ZTb7VWdIiDWrfm?usp=sharing)
+<br> 
+
+**Data**: <br> [![bdata](https://img.shields.io/badge/osf%20storage-red)](https://osf.io/zq9pc/files/osfstorage#)
 
 ---
 
