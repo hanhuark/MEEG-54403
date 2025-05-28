@@ -6,6 +6,9 @@ The dataset for this assignment can be accessed at https://data.mendeley.com/dat
 
 ![pca](./static/pcagif.gif)
 
+**Tutorial**:<br>
+[![colab1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/19yckP8QllC1BwWGqc8ZTb7VWdIiDWrfm?usp=sharing)
+
 ---
 
 #### INTRODUCTION
