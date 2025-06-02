@@ -272,7 +272,7 @@ $$Y=\begin{bmatrix}
 6 \end{bmatrix}$$
 
 
-We will also need to computer the kenrnel between the testing and training points:
+We will also need to compute the kernel between the testing and training points:
 
 $$ k_* = \begin{bmatrix} 
 k(x _{* ,1} , x_1) & k(x _{* ,2} , x_1) \\ 
