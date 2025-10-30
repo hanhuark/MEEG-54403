@@ -82,7 +82,7 @@ The first thing we will need to do is get our dataset. One possibilty is to find
 
 Now that we have our dataset we will define our architecture. This model will take in an image input and output class probablities for each pixel of that input image. SIMPLE EXAMPLE MODEL
 
-This simple model probably wont work well so you will probably need a more advance architecture. One popular architecture for semantic segmentation is UNET. It was developed by NAME for PURPOSE. This is the model we will use for the homework. I really want to emphasize how segmenatation is just more complex classification. 
+This simple model probably wont work well so you will probably need a more advance architecture. One popular architecture for semantic segmentation is UNET. It was developed by Olaf Ronneberger, Philipp Fischer, and Thomas Brox at the University of Freiburg, Germany for biomedical image segmentation, where the goal is to identify and separate different structures (e.g., cells, tissues, organs) in microscopic or medical images. This is the model we will use for the homework. I really want to emphasize how segmenatation is just more complex classification. 
 
 From this model, you will see a lot of similarities to the more simple classification model we did previously. For example, the activation function on the last layer and the loss function. 
 
